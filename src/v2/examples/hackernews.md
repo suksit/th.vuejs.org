@@ -1,10 +1,10 @@
 ---
-title: HackerNews Clone
+title: การโคลน HackerNews 
 type: examples
 order: 12
 ---
 
-> นี่เป็นโคลน HackerNews ที่สร้างขึ้นจาก API Firebase อย่างเป็นทางการของ HN , Vue 2.0 + Vue Router + Vuex, โดยจะการแสดงผลในฝั่งเซิร์ฟเวอร์
+> นี่เป็นโคลนโปรเจคของ HackerNews ที่สร้างขึ้นจาก API Firebase อย่างเป็นทางการของ HN , Vue 2.0 + Vue Router + Vuex, โดยจะการแสดงผลในฝั่งเซิร์ฟเวอร์
 
 {% raw %}
 <div style="max-width: 600px;">
