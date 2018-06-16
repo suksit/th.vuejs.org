@@ -67,9 +67,9 @@ v2/guide/transitioning-state.html
 v2/guide/transitions.html
 v2/guide/unit-testing.html
 v2/examples/commits.html | เสร็จ | :ballot_box_with_check: |
-v2/examples/elastic-header.html
-v2/examples/firebase.html
-v2/examples/grid-component.html
+v2/examples/elastic-header.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/firebase.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/grid-component.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/hackernews.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/index.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/modal.html | เสร็จ | :ballot_box_with_check: |
