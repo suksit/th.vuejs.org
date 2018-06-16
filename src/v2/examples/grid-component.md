@@ -1,5 +1,5 @@
 ---
-title: Grid Component
+title: ตารางคอมโพเนนต์
 type: examples
 order: 3
 ---
