@@ -1,44 +1,44 @@
 ---
-title: Introduction
+title: บทนำ
 type: guide
 order: 2
 ---
 
-## What is Vue.js?
+## Vue.js คืออะไร?
 
-Vue (pronounced /vjuː/, like **view**) is a **progressive framework** for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with [modern tooling](single-file-components.html) and [supporting libraries](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (อ่านว่า 'วิว' เหมือน **view** ที่แปลว่า **ทิวทัศน์**) คือ **เฟรมเวอร์คสำหรับอนาคต** สำหรับสร้างส่วนติดต่อผู้ใช้งาน (user interfaces) ที่ไม่เหมือนกับเฟรมเวอร์คอื่น ซึ่ง Vue ออกแบบมาสำหรับสร้างแอพพลิเคชันตั้งแต่เริ่มต้นและเพิ่มเติมส่วนอื่นขึ้นเรื่อยๆ โดยที่ไลบรารีหลักจะมุ่งเน้นไปที่ view layer เท่านั้น และสามารถเพิ่มส่วนอื่นเข้ามาได้ง่ายด้วยไลบรารีอื่นๆ หรือที่มีให้แล้วในโปรเจค ในทางกลับกัน Vue ยังมีความสามารถอย่างยอดเยี่ยมสำหรับเว็บแอพพลิเคชันหน้าเดียว (SPA) ที่ซับซ้อนได้ เมื่อใช้ร่วมกับ [เครื่องมือสมัยใหม่](single-file-components.html) และ [ไลบรารีสนับสนุน](https://github.com/vuejs/awesome-vue#components--libraries)
 
-If you’d like to learn more about Vue before diving in, we <a id="modal-player"  href="#">created a video</a> walking through the core principles and a sample project.
+ถ้าคุณต้องการเรียนรู้เพิ่มเติมเกี่ยวกับ Vue นั้น ก่อนที่จะเริ่มต้น ทีมงานได้ <a id="modal-player"  href="#">สร้างวีดีโอ</a> สำหรับนำเสนอหลักการสำคัญและโปรเจคตัวอย่างไว้ให้ได้ชมก่อน
 
-If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the [Comparison with Other Frameworks](comparison.html).
+ถ้าคุณมีประสบการณ์พัฒนา frontend แล้ว และต้องการเปรียบเทียบระหว่าง Vue และไลบรารีหรือเฟรมเวอร์คอื่นๆ สามารดูได้ที่ [การเปรียบเทียบกับเฟรมเวอร์คอื่น](comparison.html)
 
-## Getting Started
+## เริ่มต้นกันเลย
 
-<p class="tip">The official guide assumes intermediate level knowledge of HTML, CSS, and JavaScript. If you are totally new to frontend development, it might not be the best idea to jump right into a framework as your first step - grasp the basics then come back! Prior experience with other frameworks helps, but is not required.</p>
+<p class="tip">คำแนะนำอย่างเป็นทางการนี้สร้างขึ้นโดยถือว่าคุณมีความรู้ระดับกลางสำหรับ HTML, CSS และ JavaScript ถ้าคุณใหม่มากๆ สำหรับการพัฒนา fontend คำแนะนำนี้อาจจะไม่เหมาะสมสำหรับคุณ - คุณอาจจะต้องเรียนรู้พื้นฐานก่อนแล้วกลับมาที่คำคำแนะนำนี้ใหม่! ประสบการณ์จากเฟรมเวอร์คอื่นก่อนหน้านี้อาจจะช่วยได้ แต่ก็ไม่จำเป็น</p>
 
-The easiest way to try out Vue.js is using the [JSFiddle Hello World example](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Feel free to open it in another tab and follow along as we go through some basic examples. Or, you can <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">create an <code>index.html</code> file</a> and include Vue with:
+วิธีที่ง่ายที่สุดที่จะลองใช้ Vue.js คือใช้ [JSFiddle ตัวอย่าง Hello World](https://jsfiddle.net/chrisvfritz/50wL7mdz/) สามารถเปิดลิงค์นี้ในหน้าต่างใหม่และลองพิจารณาส่วนต่างๆ ของโค้ดตัวอย่างเบื้องต้นที่ให้มา หรือสามารถ <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html">สร้างไพล์ <code>index.html</code></a> ใหม่ และ include Vue ด้วย:
 
 ``` html
-<!-- development version, includes helpful console warnings -->
+<!-- เวอร์ชันสำหรับพัฒนา ซึ่งจะ include console warning ที่เป็นประโยชน์ต่างๆ -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 
-or:
+หรือ:
 
 ``` html
-<!-- production version, optimized for size and speed -->
+<!-- เวอร์ชันสำหรับโปรดักชัน ซึ่งจะปรับแต่งขนาดและความเร็วให้มีประสิทธิภาพมากที่สุด -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-The [Installation](installation.html) page provides more options of installing Vue. Note: We **do not** recommend that beginners start with `vue-cli`, especially if you are not yet familiar with Node.js-based build tools.
+หน้าเพจ [การติดตั้ง](installation.html) จะให้ตัวเลือกเพิ่มเติ่มสำหรับการติดตั้ง Vue หมายเหตุ: เรา **ไม่แนะนำ** ให้ผู้เริ่มต้น กระโดดไปเริ่มกับ `vue-cli` โดยเฉพาะอย่างยิ่ง ถ้าคุณไม่ได้คุ้นเคยกับเครื่องมือของ Node.js
 
-If you prefer something more interactive, you can also check out [this tutorial series on Scrimba](https://scrimba.com/playlist/pXKqta), which gives you a mix of screencast and code playground that you can pause and play around with anytime.
+ถ้าคุณต้องการอะไรที่มีความอินเตอเอกทีฟ คุณสามารถตรวจสอบได้ที่ [ชุดการสอน Scrimba](https://scrimba.com/playlist/pXKqta) ซึ่งจะได้เรียนรู้จากการผสมระหว่าง วิดีโอการสอน และ ส่วนทดลองเขียนโค้ด ที่คุณสมารถหยุดและเล่นวิดีโอได้ตลอดเวลา และทดลองเขียนโค้ดได้เลย
 
-## Declarative Rendering
+## การประกาศการแสดงผล
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank">ลองบทเรียนนี้บน Scrimba</a></div>
 
-At the core of Vue.js is a system that enables us to declaratively render data to the DOM using straightforward template syntax:
+ไลบรารีหลักของ Vue.js เป็นระบบที่อนุญาติให้เราประกาศการแสดงผลข้อมูลไปยัง DOM โดยใช้เทมเพลตอย่างตรงไปตรงมาด้วยไวยากรณ์:
 
 ``` html
 <div id="app">
@@ -67,9 +67,9 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-We have already created our very first Vue app! This looks pretty similar to rendering a string template, but Vue has done a lot of work under the hood. The data and the DOM are now linked, and everything is now **reactive**. How do we know? Open your browser's JavaScript console (right now, on this page) and set `app.message` to a different value. You should see the rendered example above update accordingly.
+จากโค้ดข้างต้น เราได้สร้างแอพพลิเคชัน Vue แรกได้แล้ว! แอพนี้ดูเหมือนว่าแสดงผลเทมเพลตข้อความธรรมดา แต่ทว่า Vue ทำหลายอย่างมากในเบื้องหลัง ข้อมูลและ ​DOM ถูกเชื่อมโยงกัน และทุกสิ่งเป็น **การตอบสอนงทันที (reactive)** เราจะรู้ได้อย่างไรล่ะมันเป็นแบบนั้นจริงๆ ลองเปิด JavaScript คอนโซลของเว็บเบราเซอร์ (ลองได้ในเพจนี้) และใส่ค่า `app.message` ให้เป็นค่าอื่น คุณจะเห็นว่าค่าของข้อความในตัวอย่างจะเปลี่ยนไปทันที
 
-In addition to text interpolation, we can also bind element attributes like this:
+เพิ่มเติมจากการแก้ไขข้อความ เราสามารถเชื่อมโยงแอตทริบิวต์ขององค์ประกอบต่างๆ ดังนี้:
 
 ``` html
 <div id="app-2">
@@ -103,15 +103,15 @@ var app2 = new Vue({
 </script>
 {% endraw %}
 
-Here we are encountering something new. The `v-bind` attribute you are seeing is called a **directive**. Directives are prefixed with `v-` to indicate that they are special attributes provided by Vue, and as you may have guessed, they apply special reactive behavior to the rendered DOM. Here, it is basically saying "keep this element's `title` attribute up-to-date with the `message` property on the Vue instance."
+ตอนนี้ จากโค้ดด้านบนเราจะเจอคำใหม่ นั้นคือ แอตทริบิวต์ `v-bind` จะเห็นว่ามันถูกเรียกโดยตรงแบบ **ไดเรกทีฟ (directive)** ไดเรกทีฟจะนำหน้าด้วย `v-` เพื่อระบุว่าเป็นแอตทริบิวต์พิเศษของ Vue และทำให้สามารถเดาได้ แอตทริบิวต์เหลานี้ใช้ตอบสนองพิเศษเพื่อแสดงผล DOM อาจจะพูดได้ง่ายๆ ว่า "ให้อับเดตแอตทริบิวต์ขององค์ประกอบ `title` เสมอ ด้วยข้อมูล `message` บนอินสแตนส์ของ Vue
 
-If you open up your JavaScript console again and enter `app2.message = 'some new message'`, you'll once again see that the bound HTML - in this case the `title` attribute - has been updated.
+ถ้าเปิด JavaScript คอนโซลของคุณอีกครั้งและใส่คำสั่ง `app2.message = 'some new message'` จะเห็นได้ว่าข้อความที่เชื่อมโยงกับ HTML จะเปลี่ยนไป - ในกรณีนี้แอตทริบิวต์ของ `title` จะเปลี่ยนไป
 
-## Conditionals and Loops
+## เงือนไขและการวนซ้ำ
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQe4SJ" target="_blank">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQe4SJ" target="_blank">ลองบทเรียนนี้บน Scrimba</a></div>
 
-It's easy to toggle the presence of an element, too:
+มันง่ายมาก ที่จะสลับการแสดงองค์ประกอบ ด้วย:
 
 ``` html
 <div id="app-3">
@@ -142,11 +142,11 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+ลองใส่คำสั่ง `app3.seen = false` ในคอนโซล คุณจะเห็นได้ว่าข้อความที่แสดงก่อนหน้านนี้หายไป
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
+ในตัวอย่างนี้แสดงให้เห็นว่าเราสามารถเชื่อมโยงข้อมูลไม่เพียงแต่ข้อความและแอตทริบิวต์ แต่สามารถเชื่องโยงกับ **โครงสร้าง** ของ DOM ได้ด้วย มากไปกว่านั้น Vue ยังมีระบบผลลัพธ์การเปลี่ยนแปลงที่มีประสิทธิภาพ ซึ่งสามารใช้ [ผลลัพธ์การเปลี่ยนแปลง](transitions.html) ได้อัตโนมัติ เมื่อส่วนประกอบนั้น แทรก/ปรับปรุง/ลบออก โดย Vue
 
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+นอกจากนี้ยังมีไดเรกทีฟอื่นที่มีการทำงานพิเศษของตัวเอง ยกตัวอย่างเช่น ไดเรกทีฟ `v-for` สามารถใช้แสดงรายการของข้อมูลจากอาเรย์
 
 ``` html
 <div id="app-4">
@@ -191,13 +191,13 @@ var app4 = new Vue({
 </script>
 {% endraw %}
 
-In the console, enter `app4.todos.push({ text: 'New item' })`. You should see a new item appended to the list.
+ในคอนโซล ใสคำสั่ง `app4.todos.push({ text: 'New item' })` คุณควรจะเห็นรายการใหม่เพิ่มเข้าไปในรายการ
 
-## Handling User Input
+## จัดการกับการป้อนข้อมูลผู้ใช้
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank">ลองบทเรียนนี้บน Scrimba</a></div>
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+เพื่อให้ผู้ใช้มีปฏิสัมพันธ์กับแอพพลิเคชันของคุณ เราสามารภใช้ไดเรกทีฟ `v-on` เพื่อแนบ event listener ที่จะเรียกฟังก์ชันในอินสแตนส์ของ Vue
 
 ``` html
 <div id="app-5">
@@ -238,9 +238,9 @@ var app5 = new Vue({
 </script>
 {% endraw %}
 
-Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+หมายเหตุว่าเมธอดนี้ เราอัพเดตสถานะของแอพพลิเคชันของเราโดยปราศจากการสัมผัส DOM - DOM ทั้งหมดจะถูกจัดการโดย Vue  และโค้ดที่คุณเขียนขึ้นมาจะเน้นที่ตรรกะพื้นฐานของแอพพลิเคชัน
 
-Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
+โดย Vue มีไดเรกทีฟ `v-model` ที่ทำการเชื่อมโยงสองทาง (two-way binding) ระหว่างแบบฟอร์มและสถานะของแอพพลิเคชันอย่างรวดเร็ว
 
 ``` html
 <div id="app-6">
@@ -271,15 +271,15 @@ var app6 = new Vue({
 </script>
 {% endraw %}
 
-## Composing with Components
+## การเขียนคอมโพแนนต์
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQVkA3" target="_blank">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQVkA3" target="_blank">ลองบทเรียนนี้บน Scrimba</a></div>
 
-The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
+ระบบคอมโพแนนต์ เป็นอีกแนวคิดที่สำคัญของ Vue เพราะว่าเป็นส่วนนามธรรม ที่อนุญาติให้พวกเราสร้างแอพพลิเคชันขนาดใหญ่ ที่ประกอบด้วยส่วนประกอบขนาดเล็ก ไม่เกี่ยวข้องกับใคร และสามารถนำกลับมาใช้ใหม่ได้ ถ้าพวกเราคิดถึงสิ่งเหล่านี้ แทบทุกชนิดของแอพพลิเคชันอินเทอเฟสสามารถแยกออกเป็นโครงสร้างต้นไม้ของคอมโพแนนต์:
 
 ![Component Tree](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+ใน Vue คอมโพแนนต์เป็นส่วนสำคัญของวิวอินสแตนซ์ ด้วยตัวเลือกที่กำหนดไว้ล่วงหน้า การลงทะเบียนคอมโพแนนต์ใน Vue ทำได้โดยตรง
 
 ``` js
 // Define a new component called todo-item
@@ -288,7 +288,7 @@ Vue.component('todo-item', {
 })
 ```
 
-Now you can compose it in another component's template:
+ณ ตอนนี้ คุณสามารถเรียบเรียงคอมโพแนนต์ในแบบคอมโพแนนต์อื่นได้:
 
 ``` html
 <ol>
@@ -297,7 +297,7 @@ Now you can compose it in another component's template:
 </ol>
 ```
 
-But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](components.html#Props):
+จากโค้ดข้างต้นจะแสดงข้อความเหมือนกันสำหรับทุกๆ รายการ todo ซึ่งไม่ใช่สิ่งที่เราต้องการ ดังนั้นเราควรจะส่งผ่านข้อมูลจากสโคปแม่ไปยังคอมโพแนนต์ลูก โดยแก้ไขข้อกำหนดของคอมโพแนนต์เพื่อทำให้มันรับ [prop](components.html#Props):
 
 ``` js
 Vue.component('todo-item', {
@@ -309,7 +309,7 @@ Vue.component('todo-item', {
 })
 ```
 
-Now we can pass the todo into each repeated component using `v-bind`:
+ณ ตอนนี้ เราสามารถส่งผ่านข้อมูล todo ไปยังแต่ล่ะคอมโพแนนต์โดยใช้ไดเรกทีฟ `v-bind`:
 
 ``` html
 <div id="app-7">
@@ -369,9 +369,9 @@ var app7 = new Vue({
 </script>
 {% endraw %}
 
-This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
+จากตัวอย่างข้างต้น เราสามารถจัดการแยกแอพพลิเคลันของเราออกเป็น 2 ส่วนเล็กๆ และคอมโพแนนต์ลูกคือส่วนที่แยกส่วนออกจากแอพพลิเคชันแม่ด้วย props อินเทอเฟส เราสามารถปรับปรุงคอมโพแนนต์ `<todo-item>` ด้วยแทมเพลตและตรรกะที่ซับซ้อนขึ้นโดยปราศจากผลกระทบกับแอพลิเคชันแม่
 
-In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](components.html), but here's an (imaginary) example of what an app's template might look like with components:
+ในแอพพลิเคชันขนาดใหญ่จำเป็นต้องแบ่งแอพพลิเคชันออกเป็นคอมโพแนนต์เพื่อทำให้การพัฒนาสามารถจัดการได้ เราจะกล่าวเพิ่มเติมเกี่ยวกับคอมโพแนนต์[คำแนะนำในภายหลัง](components.html) โดยโครงสร้างตัวอย่างของแอพพลิเคชันแทมเพลตอาจจะประกอบด้วยคอมโพแนนต์ต่างๆ:
 
 ``` html
 <div id="app">
@@ -383,16 +383,16 @@ In a large application, it is necessary to divide the whole app into components 
 </div>
 ```
 
-### Relation to Custom Elements
+### ความสัมพันธ์กับองค์ประกอบที่กำหนดเอง
 
-You may have noticed that Vue components are very similar to **Custom Elements**, which are part of the [Web Components Spec](https://www.w3.org/wiki/WebComponents/). That's because Vue's component syntax is loosely modeled after the spec. For example, Vue components implement the [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) and the `is` special attribute. However, there are a few key differences:
+คุณอาจจะสังเกตเห็นว่าคอมโพแนนต์ของ Vue จะเหมือนกับ **องค์ประกอบที่กำหนดเอง** ซึ่งเป็นส่วนของ [ส่วนประกอบของเว็บ](https://www.w3.org/wiki/WebComponents/) นั้นเพราะว่าไวยกรณ์ของคอมโพแนนต์ของ Vue จำลองอย่างหลวมๆ หลังจากข้อกำหนด ตัวอย่างเช่น การพัฒนาคอมโพแนนต์ของ Vue [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) และ`เป็น` แอททริบิวพิเศษ อย่างไรก็ตาม มีส่วนที่แตกต่างกันอยู่บ้างดังนี้:
 
-1. The Web Components Spec is still in draft status, and is not natively implemented in every browser. In comparison, Vue components don't require any polyfills and work consistently in all supported browsers (IE9 and above). When needed, Vue components can also be wrapped inside a native custom element.
+1. ข้อกำหนดของเว็บคอมโพแนนต์เป็นเพียงแค่สถานะร่าง และไม่ใช้การพัฒนาโดยกำเนิดในทุกๆ เว็บบราว์เซอร์ ในการเปรียบเทียบ คอมโพแนนต์ของ Vue ไม่ต้องการ polyfill และงานอย่างสม่ำเสมอใดๆ ในการรองรับของเว็บบราว์เซอร์ (IE9 ขึ้นไป) เมื่อจำเป็น คอมโพแนนต์ของ Vue สามารถซ่อนข้างในส่วนประกอบกำหนดเองโดยกำเนิด
 
-2. Vue components provide important features that are not available in plain custom elements, most notably cross-component data flow, custom event communication and build tool integrations.
+2. คอมโพแนนต์ของ Vue จะให้ความสามารถที่สำคัญที่ไม่ได้อยู่ในส่วนประกอบที่กำหนดเอง โดยส่วนใหญ่การส่งผ่านข้อมูลข้ามคอมโพแนนต์ เหตุการณ์ที่กำหนดเอง และสร้างเครื่องมือที่ใช้ในการรวบรวมระบบ
 
-## Ready for More?
+## พร้อมสำหรับข้อมูลเพิ่มเติม?
 
-We've briefly introduced the most basic features of Vue.js core - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
+เราอธิบายคุณสมบัติเบื้องต้นมากสำหรับส่วนหลักของ Vue.js - ส่วนที่เหลือของคำแนะนำนี้จะครอบคลุมสิ่งที่อธิบายไปแล้วและคุณสมบัติอื่นในขั้นสูงขึ้นด้วยรายละเอียดเพิ่มเติม ดังนั้นคุณอาจจะอ่านทั้งหมดเพื่อความเข้าใจอย่างลึกซึ้ง
 
 <div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"><iframe src="https://player.vimeo.com/video/247494684" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script></div>
