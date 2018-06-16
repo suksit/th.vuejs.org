@@ -71,7 +71,7 @@ v2/examples/elastic-header.html
 v2/examples/firebase.html
 v2/examples/grid-component.html
 v2/examples/hackernews.html | เสร็จ | :ballot_box_with_check: |
-v2/examples/index.html
+v2/examples/index.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/modal.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/select2.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/svg.html | เสร็จ | :ballot_box_with_check: |
