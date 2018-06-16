@@ -24,3 +24,56 @@ $ npm start # dev server at http://localhost:4000
 * Repo การแปล - [/vuejs-th/th.vuejs.org](https://github.com/vuejs-th/th.vuejs.org)
 
 ขอบพระคุณอย่างยิ่ง
+
+**TODO:** ราการที่ต้องแปล
+
+หน้า | สถานะ |  เสร็จ? |
+----|:-------:|:--------:|
+themes/vue/layout/partials/ecosystem_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/language_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/learn_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/main_menu.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/sponsors_sidebar.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/sponsors.ejs | |
+themes/vue/layout/partials/support_vue_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
+v2/api/index.html
+v2/guide/class-and-style.html
+v2/guide/comparison.html
+v2/guide/components.html
+v2/guide/computed.html
+v2/guide/conditional.html
+v2/guide/custom-directive.html
+v2/guide/deployment.html
+v2/guide/events.html
+v2/guide/forms.html
+v2/guide/index.html | กำลังแปล | 
+v2/guide/installation.html
+v2/guide/instance.html
+v2/guide/join.html
+v2/guide/list.html
+v2/guide/migration-vue-router.html
+v2/guide/migration-vuex.html
+v2/guide/migration.html
+v2/guide/mixins.html
+v2/guide/plugins.html
+v2/guide/reactivity.html
+v2/guide/render-function.html
+v2/guide/routing.html
+v2/guide/single-file-components.html
+v2/guide/ssr.html
+v2/guide/state-management.html
+v2/guide/syntax.html
+v2/guide/transitioning-state.html
+v2/guide/transitions.html
+v2/guide/unit-testing.html
+v2/examples/commits.html
+v2/examples/elastic-header.html
+v2/examples/firebase.html
+v2/examples/grid-component.html
+v2/examples/hackernews.html
+v2/examples/index.html
+v2/examples/modal.html
+v2/examples/select2.html
+v2/examples/svg.html
+v2/examples/todomvc.html
+v2/examples/tree-view.html
