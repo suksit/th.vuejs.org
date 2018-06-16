@@ -1,5 +1,5 @@
 ---
-title: GitHub Commits
+title: คอมมิตกิตฮับ 
 type: examples
 order: 1
 ---
