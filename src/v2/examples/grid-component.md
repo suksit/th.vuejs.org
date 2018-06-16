@@ -4,6 +4,6 @@ type: examples
 order: 3
 ---
 
-> This is an example of creating a reusable grid component and using it with external data.
+> นี่คือตัวอย่างของการสร้างคอมโพเนนต์แบบ grid ที่ใช้ซ้ำได้ และใช้กับข้อมูลภายนอก
 
 <iframe width="100%" height="500" src="https://jsfiddle.net/yyx990803/xkkbfL3L/embedded/result,html,js,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
