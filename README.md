@@ -25,7 +25,7 @@ $ npm start # dev server at http://localhost:4000
 
 ขอบพระคุณอย่างยิ่ง
 
-### **TODO:** ราการที่ต้องแปล
+**TODO:** ราการที่ต้องแปล
 
 หน้า | สถานะ |  เสร็จ? |
 ----|:-------:|:--------:|
@@ -34,7 +34,7 @@ themes/vue/layout/partials/language_dropdown.ejs | เสร็จ | :ballot_box
 themes/vue/layout/partials/learn_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
 themes/vue/layout/partials/main_menu.ejs | เสร็จ | :ballot_box_with_check: |
 themes/vue/layout/partials/sponsors_sidebar.ejs | เสร็จ | :ballot_box_with_check: |
-themes/vue/layout/partials/sponsors.ejs | เสร็จ | :ballot_box_with_check: |
+themes/vue/layout/partials/sponsors.ejs |  เสร็จ | :ballot_box_with_check: |
 themes/vue/layout/partials/support_vue_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
 v2/api/index.html
 v2/guide/class-and-style.html
@@ -46,7 +46,7 @@ v2/guide/custom-directive.html
 v2/guide/deployment.html
 v2/guide/events.html
 v2/guide/forms.html
-v2/guide/index.html | เสร็จ | :ballot_box_with_check: |
+v2/guide/index.html | กำลังแปล | 
 v2/guide/installation.html
 v2/guide/instance.html
 v2/guide/join.html
@@ -66,14 +66,14 @@ v2/guide/syntax.html
 v2/guide/transitioning-state.html
 v2/guide/transitions.html
 v2/guide/unit-testing.html
-v2/examples/commits.html
+v2/examples/commits.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/elastic-header.html
 v2/examples/firebase.html
 v2/examples/grid-component.html
-v2/examples/hackernews.html
+v2/examples/hackernews.html | เสร็จ | :ballot_box_with_check: |
 v2/examples/index.html
-v2/examples/modal.html
-v2/examples/select2.html
-v2/examples/svg.html
-v2/examples/todomvc.html
-v2/examples/tree-view.html
+v2/examples/modal.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/select2.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/svg.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/todomvc.html | เสร็จ | :ballot_box_with_check: |
+v2/examples/tree-view.html | เสร็จ | :ballot_box_with_check: |
