@@ -1,70 +1,69 @@
 ---
-title: Installation
+title: การติดตั้ง
 type: guide
 order: 1
 vue_version: 2.5.16
 gz_size: "30.90"
 ---
 
-### Compatibility Note
+### บันทึกการเข้ากันได้
 
-Vue does **not** support IE8 and below, because it uses ECMAScript 5 features that are un-shimmable in IE8. However it supports all [ECMAScript 5 compliant browsers](https://caniuse.com/#feat=es5).
+Vue **ไม่** รองรับ IE8 และต่ำกว่า เพราะว่าใช้ความสามารถของ ECMAScript 5 เนื่องจากไม่รองรับใน IE8 อย่างไรก็ตาม Vue รองรับ [เบาว์เซอร์ที่รองรับ ECMAScript 5](https://caniuse.com/#feat=es5) ทั้งหมด
 
-### Release Notes
+### บันทึกอัปเดต
 
-Latest stable version: {{vue_version}}
+เวอร์ชันเสถียรภาพล่าสุด: {{vue_version}}
 
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue/releases).
+รายละเอียดบันทึกการอัปเดตของแต่ล่ะเวอร์ชันดูได้ที่ [GitHub](https://github.com/vuejs/vue/releases)
 
 ## Vue Devtools
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+เมื่อใช้ Vue เราแนะนำให้ติดตั้ง [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) ในเบาว์เซอร์ของคุณ ซึ่งจะทำให้ตรวจสอบและดีบักแอพพลิเคชัน Vue ของได้ใน UI ที่เป็นมิตรต่อผู้ใช้มากขึ้น
 
-## Direct `<script>` Include
+## การใช้งาน `<script>` Include
 
-Simply download and include with a script tag. `Vue` will be registered as a global variable.
+ดาวน์โหลดและ include อย่างง่ายด้วย สคริปท์แท็ก `Vue` จะลงทะเบียนในตัวแปรกลาง
 
-<p class="tip">Don't use the minified version during development. You will miss out on all the nice warnings for common mistakes!</p>
+<p class="tip">ห้ามใช้เวอร์ชันแบบง่ายในระหว่างการพัฒนาแอพพลิเคชัน คุณจะพลาดคำเตือนที่มีประโยชน์ของความผิดพลาดที่เกิดขึ้น</p>
 
 <div id="downloads">
-<a class="button" href="/js/vue.js" download>Development Version</a><span class="light info">With full warnings and debug mode</span>
+<a class="button" href="/js/vue.js" download>เวอร์ชันพัฒนา</a><span class="light info">แสดงคำเตือนทั้งหมดและโหมดดีบัก</span>
 
-<a class="button" href="/js/vue.min.js" download>Production Version</a><span class="light info">Warnings stripped, {{gz_size}}KB min+gzip</span>
+<a class="button" href="/js/vue.min.js" download>เวอร์ชันใช้งานจริง</a><span class="light info">คำเตือนถูกซ้อนทั้งหมด ขนาดเล็ก {{gz_size}}KB +gzip</span>
 </div>
 
 ### CDN
 
-We recommend linking to a specific version number that you can update manually:
+ขอแนะนำให้เชื่อมโยงไปหมายเลขเวอร์ชันที่ต้องการที่คุณสามารถกำหนดได้เอง:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 ```
 
-You can browse the source of the NPM package at [cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue/).
+สามารถเรียกดูแหล่งที่มาของแพคเกจ NPM ได้ที่ [cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue/)
 
-Vue is also available on [unpkg](https://unpkg.com/vue@{{vue_version}}/dist/vue.js) and [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) (cdnjs takes some time to sync so the latest release may not be available yet).
+Vue ยังมีอยู่ใน [unpkg](https://unpkg.com/vue@{{vue_version}}/dist/vue.js) และ [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) (cdnjs ใช้เวลาในการซิงค์เพื่อให้เป็นเวอร์ชันล่าสุดอาจไม่สามารถใช้งานได้)
 
-Make sure to read about [the different builds of Vue](#Explanation-of-Different-Builds) and use the **production
- version** in your published site, replacing `vue.js` with `vue.min.js`. This is a smaller build optimized for speed instead of development experience.
+ตรวจดูให้แน่ใจว่าอ่านเกี่ยวกับ [การอธิบายความแตกต่างของการสร้างแอพพลิเคชันของ Vue](#Explanation-of-Different-Builds) และใช้ **เวอร์ชันใช้งานจริง** ในเว็บไซท์ แทนที่ `vue.js` ด้วย `vue.min.js` ซี่งเป็นโค้ดที่สร้างขึ้นโดยที่ปรับแต่งเพื่อความเร็วเป็นสำคัญ แทนที่จะเหมาะกับขั้นตอนการพัฒนา
 
 ## NPM
 
-NPM is the recommended installation method when building large scale applications with Vue. It pairs nicely with module bundlers such as [Webpack](https://webpack.js.org/) or [Browserify](http://browserify.org/). Vue also provides accompanying tools for authoring [Single File Components](single-file-components.html).
+NPM เป็นวิธีการที่แนะนำสำหรับสร้างแอพพลิเคชันขนาดใหญ่ด้วย Vue ซึ่งจับคู่กับเครื่องมือรวมชุดโมดูลที่มีประสิทธิภาพอย่างเช่น [Webpack](https://webpack.js.org/) หรือ [Browserify](http://browserify.org/) Vue มีเครื่องมือประกอบให้สำหรับสร้าง [คอมโพแนนต์ไฟล์เดียว](single-file-components.html) 
 
 ``` bash
-# latest stable
+# เวอร์ชันเสถียรล่าสุด
 $ npm install vue
 ```
 
 ## CLI
 
-Vue provides an [official CLI](https://github.com/vuejs/vue-cli) for quickly scaffolding ambitious Single Page Applications. It provides batteries-included build setups for a modern frontend workflow. It takes only a few minutes to get up and running with hot-reload, lint-on-save, and production-ready builds. See [the Vue CLI docs](https://cli.vuejs.org) for more details.
+Vue จัดเตรียมเครื่องมือ [CLI เป็นทางการ](https://github.com/vuejs/vue-cli) ให้ สำหรับสร้างโครงโค้ดแอพพลิเคชันเว็บหน้าเดียว ซึ่งจัดขั้นตอนการสร้าง batteries-included สำหรับขั้นตอนการทำงานของ frontend สมัยใหม่ โดยใช้เวลาเพียงไม่กี่นาที่ที่จะสร้างแอพพลิเคชันและทำให้ทำงานได้ด้วย hot-reload, lint-on-save และ production-ready ดูเพิ่มเติมได้ที่ [เอกสาร Vue CLI](https://cli.vuejs.org)
 
-<p class="tip">The CLI assumes prior knowledge of Node.js and the associated build tools. If you are new to Vue or front-end build tools, we strongly suggest going through <a href="./">the guide</a> without any build tools before using the CLI.</p>
+<p class="tip">การใช้งาน CLI จะต้องมีความรู้เกี่ยวกับ Node.js และเครื่องมือสร้างที่เกี่ยวข้อง ถ้าคุณเป็นมือใหม่สำหรับ Vue หรือเครื่องมือสร้าง frontend แล้ว เราแนะนำให้อ่าน <a href="./">คำแนะนำ</a> ก่อน โดยไม่ต้องใช้เครื่องมือสร้าง CLI</p>
 
-## Explanation of Different Builds
+## การอธิบายความแตกต่างของการสร้างแอพพลิเคชัน
 
-In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue/dist/) you will find many different builds of Vue.js. Here's an overview of the difference between them:
+ใน [ไดเรกทอรีของเพกเกจ NPM `dist/`](https://cdn.jsdelivr.net/npm/vue/dist/) จะเจอความแตกต่างหลายอย่างของการสร้างของ Vue.js ซึ่งแสดงภาพรวมของความแตกต่างของการสร้างดังนี้:
 
 | | UMD | CommonJS | ES Module |
 | --- | --- | --- | --- |
@@ -73,31 +72,31 @@ In the [`dist/` directory of the NPM package](https://cdn.jsdelivr.net/npm/vue/d
 | **Full (production)** | vue.min.js | - | - |
 | **Runtime-only (production)** | vue.runtime.min.js | - | - |
 
-### Terms
+### ข้อกำหนด
 
-- **Full**: builds that contain both the compiler and the runtime.
+- **Full**: การสร้างที่บรรจุทั้ง compiler และ runtime
 
-- **Compiler**: code that is responsible for compiling template strings into JavaScript render functions.
+- **Compiler**: โค้ดที่รับผิดชอบสำหรับรวบรวมเทมเพลตข้อความไปยังฟังก์ชันแสดงผล JavaScript
 
-- **Runtime**: code that is responsible for creating Vue instances, rendering and patching virtual DOM, etc. Basically everything minus the compiler.
+- **Runtime**: โค้ดที่รับผิดชอบสำหรับสร้างอินสแตนส์ของ Vue, แสดงผลและแก้ไข DOM เสมือน เป็นต้น. โดยพื้นฐานแล้วการสร้างแบบนี้จะสร้างทุกสิ่งทุกอย่างยกเว้น Compiler
 
-- **[UMD](https://github.com/umdjs/umd)**: UMD builds can be used directly in the browser via a `<script>` tag. The default file from jsDelivr CDN at [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) is the Runtime + Compiler UMD build (`vue.js`).
+- **[UMD](https://github.com/umdjs/umd)**: การสร้างแบบ UMD สามารถใช้เพื่อสร้างไดเรกทอรีในเว็บบราวเซอร์ด้วย แท็ก `<script>` ไฟล์เริ่มต้นจาก jsDeliver CDN ที่ [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) เป็น Runtime + Compiler UMD build (`vue.js`)
 
-- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: CommonJS builds are intended for use with older bundlers like [browserify](http://browserify.org/) or [webpack 1](https://webpack.github.io). The default file for these bundlers (`pkg.main`) is the Runtime only CommonJS build (`vue.runtime.common.js`).
+- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: การสร้างแบบ CommonJS เป็นการสร้างที่ใช้สำหรับตัวรวมชุดโมดูลแบบเก่า เช่น [browserify](http://browserify.org/) หรือ [webpack 1](https://webpack.github.io) ไฟล์เริ่มต้นสำหรับตัวรวบรวมโมดูลคือ (`pkg.mian`) เป็น Runtime CommonJS build (`vue.runtime.common.js`) เท่านั้น
 
-- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: ES module builds are intended for use with modern bundlers like [webpack 2](https://webpack.js.org) or [rollup](https://rollupjs.org/). The default file for these bundlers (`pkg.module`) is the Runtime only ES Module build (`vue.runtime.esm.js`).
+- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: การสร้างแบบ ES module เป็นการสร้างที่ใช้สำหรับตัวรวมชุดโมดูลแบบใหม่ เช่น [webpack 2](https://webpack.js.org) หรือ [rollup](https://rollupjs.org/) ไฟล์เริ่มต้นสำหรับตัวรวมรวมโมดูลคือ (`pkg.module`) เป็น Runtime ES Module build เท่านั้น (`vue.runtime.esm.js`)
 
 ### Runtime + Compiler vs. Runtime-only
 
-If you need to compile templates on the client (e.g. passing a string to the `template` option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:
+ถ้าคุณต้องการเทมเพลตการสร้างบนเครื่องไคลเอน (ตัวอย่างเช่น ส่งผ่านข้อความไปที่ตัวเลือก `template` หรือ การผูกส่วนประกอบต่างๆ ด้วย in-DOM HTML เป็นเทมเพลต) คุณจำเป็นต้องใช้คอมไฟล์เลอร์และการสร้างแบบ Full
 
 ``` js
-// this requires the compiler
+// ต้องใช้คอมไฟล์เลอร์
 new Vue({
   template: '<div>{{ hi }}</div>'
 })
 
-// this does not
+// ไม่ต้องใช้คอมไฟล์เลอร์
 new Vue({
   render (h) {
     return h('div', this.hi)
@@ -105,9 +104,9 @@ new Vue({
 })
 ```
 
-When using `vue-loader` or `vueify`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don't really need the compiler in the final bundle, and can therefore use the runtime-only build.
+เมื่อใช้ `vue-loader` หรือ `vueify` เทมเพลตข้างในไฟล์ `*.vue` เป็นโค้ดก่อนรวบรวมเป็น JavaScript ขณะเวลาสร้าง คุณไม่ต้องการคอมไฟล์เลอร์จริงๆในการรวมรวมขั้นสุดท้าย และสามารถใช้การสร้างในรันไทม์เท่านั้น 
 
-Since the runtime-only builds are roughly 30% lighter-weight than their full-build counterparts, you should use it whenever you can. If you still wish to use the full build instead, you need to configure an alias in your bundler:
+ในเมื่อการสร้างในรันไทม์เท่านั้นจะได้ไฟล์มีขนาดเพียงประมาณ 30% ของการสร้างแบบเต็ม ควรใช้การสร้างแบบนี้ทุกครั้งที่ทำได้ และถ้าคุณต้องการใช้การสร้างแบบเต็มแทน คุณแค่ตั้งค่าในตัวรวมรวมโมดูลของคุณ
 
 #### Webpack
 
@@ -139,7 +138,7 @@ rollup({
 
 #### Browserify
 
-Add to your project's `package.json`:
+เพิ่มโค้ดนี้ไปยัง `package.json` ในโปรเจคของคุณ:
 
 ``` js
 {
@@ -152,7 +151,7 @@ Add to your project's `package.json`:
 
 #### Parcel
 
-Add to your project's `package.json`:
+เพิ่มโค้ดนี้ไปยัง `package.json` ในโปรเจคของคุณ:
 
 ``` js
 {
@@ -163,17 +162,17 @@ Add to your project's `package.json`:
 }
 ```
 
-### Development vs. Production Mode
+### โหมด การพัฒนา vs. การนำไปใช้งานจริง
 
-Development/production modes are hard-coded for the UMD builds: the un-minified files are for development, and the minified files are for production.
+โหมด การพัฒนา(Development) และการนำไปใช้งานจริง (Production) เป็น hard-coded สำหรับการสร้างแบบ UMD: เป็นการสร้างแอพพลิเคชันที่ไม่ลดขนาดของไฟล์สำหรับการพัฒนา และลดขนาดของไฟล์สำหรับการนำไปใช้จริง
 
-CommonJS and ES Module builds are intended for bundlers, therefore we don't provide minified versions for them. You will be responsible for minifying the final bundle yourself.
+การสร้าง CommonJS และ ES Modules เป็นหน้าที่ของตัวรวบรวมโมดูล ดังนั้นเราไม่สามารถลดขนาดของไฟล์เหลานี้ได้ ซึ่งคุณสามารถลดขนาดของมันได้โดยการตั้งค่าในตัวรวบรวมโมดูลด้วยตัวคุณเอง
 
-CommonJS and ES Module builds also preserve raw checks for `process.env.NODE_ENV` to determine the mode they should run in. You should use appropriate bundler configurations to replace these environment variables in order to control which mode Vue will run in. Replacing `process.env.NODE_ENV` with string literals also allows minifiers like UglifyJS to completely drop the development-only code blocks, reducing final file size.
+การสร้าง CommonJS และ ES Modules ยังสงวนสำหรับการตรวจสอบ `process.env.NODE_ENV` เพื่อกำหนดโหมดที่จะรัน คุณควรจะใช้การตั้งค่าของตัวรวบรวมโมดูลที่เหมาะสมไปแทนที่ตัวแปลของสิ่งแวดล้อมระบบเพื่อจะควบคุมว่าโหมดไหม Vue ควรจะรัน การแทนที่ `process.env.NODE_ENV` ด้วยการตั้งค่าทำให้ลดขนาดของไฟล์ได้ เช่น UglifyJS เพื่อเอาไฟล์ของโหมดพัฒนาออกทำให้ขนาดของไฟล์เล็กลง
 
 #### Webpack
 
-In Webpack 4+, you can use the `mode` option:
+ใน Webpack 4+, คุณสามารถใช้โหลดตัวเลือก `mode`:
 
 ``` js
 module.exports = {
@@ -181,7 +180,7 @@ module.exports = {
 }
 ```
 
-But in Webpack 3 and earlier, you'll need to use [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
+แต่ใน Webpack 3 และเวอร์ชันก่อนหน้า คุณจำเป็นต้องใช้ [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
 
 ``` js
 var webpack = require('webpack')
@@ -201,7 +200,7 @@ module.exports = {
 
 #### Rollup
 
-Use [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
+ใช้ [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
 
 ``` js
 const replace = require('rollup-plugin-replace')
@@ -218,23 +217,23 @@ rollup({
 
 #### Browserify
 
-Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle.
+ใช้ global [envify](https://github.com/hughsk/envify) แปลงไปยังตัวรวบควมโมดูลของคุณ
 
 ``` bash
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-Also see [Production Deployment Tips](deployment.html).
+ดูเพิ่มเติมได้ที่ [เคล็ดลับในการพัฒนาการนำไปใช้งาน](deployment.html).
 
-### CSP environments
+### สิ่งแวดล้อม CSP
 
-Some environments, such as Google Chrome Apps, enforce Content Security Policy (CSP), which prohibits the use of `new Function()` for evaluating expressions. The full build depends on this feature to compile templates, so is unusable in these environments.
+บางสิ่งแวดล้อม อย่่างเช่น Google Chrome Apps บังคับใช้ นโยบายความปลอดภัยของเนื้อหา (Content Security Policy: CPS) โดยการห้ามมิให้ใช้ `new Function()` สำหรับการประเมินนิพจน์ การสร้างแบบเต็มขึ้นอยู่กับคุณลักษณะเพื่อคอมไฟล์เทมเพลต ดังนั้นจึงไม่สามารถใช้งานได้ในสิ่งแวดล้อมเหลานี้
 
-On the other hand, the runtime-only build is fully CSP-compliant. When using the runtime-only build with [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) or [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), your templates will be precompiled into `render` functions which work perfectly in CSP environments.
+ในทางกลับกัน การสร้งแบบ runtime-only สอดคล้องกับ CSP เต็มรูปแบบ เมื่อใช้การสร้างแบบ runtime-only ด้วย [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) หรือ [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple) เทมเพลตของคุณจะต้องฟรีคอมไฟล์ไปเป็นฟังก์ชัน `render` ซึ่งทำงานอย่างยอดเยี่ยมกับสิ่งแวดล้อม CSP
 
-## Dev Build
+## การสร้างในขั้นตอนพัฒนา
 
-**Important**: the built files in GitHub's `/dist` folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
+**สำคัญ**: การสร้างไฟล์ใน GitHub โฟลเดอร์ `/dist` เป็นการเช็คอินเฉพาะในระหว่าง releases เพื่อใช้ Vue จากซอร์ซโค้ดบน GitHub คุณสามารถสร้างได้ด้วยตัวคุณเอง
 
 ``` bash
 git clone https://github.com/vuejs/vue.git node_modules/vue
@@ -245,13 +244,14 @@ npm run build
 
 ## Bower
 
-Only UMD builds are available from Bower.
+เพียงการสร้าง UMD ใช้ได้จาก Bower
 
 ``` bash
-# latest stable
+# เวอร์ชันเสถียรล่าสุด
 $ bower install vue
 ```
 
-## AMD Module Loaders
+## ตัวโหลดโมดูล AMD
 
+การสร้างแบบ UMD ทั้งหมดสามารถใช้ได้โดยตรงแบบโมดูล ​AMD
 All UMD builds can be used directly as an AMD module.
