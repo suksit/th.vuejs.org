@@ -36,7 +36,7 @@ themes/vue/layout/partials/main_menu.ejs | เสร็จ | :ballot_box_with_ch
 themes/vue/layout/partials/sponsors_sidebar.ejs | เสร็จ | :ballot_box_with_check: |
 themes/vue/layout/partials/sponsors.ejs |  เสร็จ | :ballot_box_with_check: |
 themes/vue/layout/partials/support_vue_dropdown.ejs | เสร็จ | :ballot_box_with_check: |
-v2/api/index.html
+v2/api/index.html | กำลังแปล | 
 v2/guide/class-and-style.html
 v2/guide/comparison.html
 v2/guide/components.html
