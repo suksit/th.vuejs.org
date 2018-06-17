@@ -55,7 +55,7 @@ v2/guide/events.html
 v2/guide/forms.html
 v2/guide/index.html | เสร็จ | :ballot_box_with_check: | 
 v2/guide/installation.html | เสร็จ | :ballot_box_with_check: |
-v2/guide/instance.html
+v2/guide/instance.html | เสร็จ | :ballot_box_with_check: |
 v2/guide/join.html
 v2/guide/list.html
 v2/guide/migration-vue-router.html
