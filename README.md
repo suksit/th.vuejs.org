@@ -23,9 +23,16 @@ $ npm start # dev server at http://localhost:4000
 
 * Repo การแปล - [/vuejs-th/th.vuejs.org](https://github.com/vuejs-th/th.vuejs.org)
 
-ขอบพระคุณอย่างยิ่ง
+## วิธีการร่วมแปล
 
-**TODO:** ราการที่ต้องแปล
+1. สามารถ fork vuejs-th/th.vuejs.org ไปยัง repos ของท่าน
+2. อัพเดต **สถานะ** ว่าคุณกำลังแปลหน้าไหนอยู่ใน README.md เพื่อที่จะไม่ทำงานซ้อนกัน
+3. หลังจากแปลเสร็จแล้ว อัพเดตสถานะและใส่ emoji :ballot_box_with_check: ในช่อง **เสร็จ?** ใน README.md  เพื่อบอกว่าเสร็จแล้วน่ะ
+4. Pull request มาที่ vuejs-th/th.vuejs.org เพื่อ merge เข้ากับโปรเจคหลัก
+
+> _มาช่วยกันแปลให้เสร็จน่ะครับ_
+
+### **TODO:** ราการที่ต้องแปล
 
 หน้า | สถานะ |  เสร็จ? |
 ----|:-------:|:--------:|
