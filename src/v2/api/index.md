@@ -78,7 +78,7 @@ type: api
   }
   ```
 
-  Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the Vue instance.
+  กำหนดตัวจัดการข้อผิดพลาดที่ไม่สามารถตรวจจับได้ระหว่างฟังก์ชันการแสดงผลและตัวแสดงส่วนประกอบ ตัวจัดการได้รับการเรียกด้วยข้อผิดพลาดและอินสแตนซ์ Vue
 
   > In 2.2.0+, this hook also captures errors in component lifecycle hooks. Also, when this hook is `undefined`, captured errors will be logged with `console.error` instead of crashing the app.
 
@@ -136,9 +136,9 @@ type: api
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
-    // camelCase won`t work
+    // camelCase จะไม่ทำงาน
     mediaPlayPause: 179,
-    // instead you can use kebab-case with double quotation marks
+    // คุณสามารถใช้ kebab-case กับเครื่องหมาย double quotation 
     "media-play-pause": 179,
     up: [38, 87]
   }
@@ -176,23 +176,23 @@ type: api
 
 ## Global API
 
-### Vue.extend( options )
+### Vue.extend( ตัวเลือก )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object} options`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Create a "subclass" of the base Vue constructor. The argument should be an object containing component options.
+  การสร้าง "subclass" ของตัวสร้างฐาน Vue อาร์กิวเมนต์ควรเป็นอ็อบเจ็กต์ที่ประกอบด้วยตัวเลือกคอมโพเนนต์
 
-  The special case to note here is the `data` option - it must be a function when used with `Vue.extend()`.
+  กรณีพิเศษที่จะต้องทราบที่นี่เป็น `data` ตัวเลือก - จะต้องมีฟังก์ชั่นเมื่อใช้กับ `Vue.extend()`.
 
   ``` html
   <div id="mount-point"></div>
   ```
 
   ``` js
-  // create constructor
+  // สร้าง constructor
   var Profile = Vue.extend({
     template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
     data: function () {
@@ -203,92 +203,92 @@ type: api
       }
     }
   })
-  // create an instance of Profile and mount it on an element
+  // สร้างอินสแตนซ์ของ Profile และติดตั้งบน element
   new Profile().$mount('#mount-point')
   ```
 
-  Will result in:
+  จะส่งผลให้:
 
   ``` html
   <p>Walter White aka Heisenberg</p>
   ```
 
-- **See also:** [Components](../guide/components.html)
+- **ดูเพิ่มเติมที่:** [คอมโพเนนต์](../guide/components.html)
 
 ### Vue.nextTick( [callback, context] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Function} [callback]`
   - `{Object} [context]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update.
+  เลื่อนการเรียกกลับที่จะดำเนินการหลังจากรอบการอัพเดท DOM ครั้งต่อไป ใช้ทันทีหลังจากที่คุณได้เปลี่ยนข้อมูลบางส่วนเพื่อรอการอัปเดต DOM
 
   ``` js
-  // modify data
+  // แก้ไขข้อมูล
   vm.msg = 'Hello'
-  // DOM not updated yet
+  // DOM ยังไม่ได้อัพเดต
   Vue.nextTick(function () {
-    // DOM updated
+    // ปรับปรุง DOM แล้ว
   })
 
   // usage as a promise (2.1.0+, see note below)
   Vue.nextTick()
     .then(function () {
-      // DOM updated
+      // ปรับปรุง DOM แล้ว
     })
   ```
 
-  > New in 2.1.0+: returns a Promise if no callback is provided and Promise is supported in the execution environment. Please note that Vue does not come with a Promise polyfill, so if you target browsers that don't support Promises natively (looking at you, IE), you will have to provide a polyfill yourself.
+  > ใน 2.1.0+: ส่งกลับ Promise ถ้าไม่มีการเรียกกลับและ Promise ได้รับการสนับสนุนในสภาพแวดล้อมการทำงาน โปรดทราบว่า Vue ไม่ได้มี Promise polyfill ดังนั้นหากคุณกำหนดเป้าหมายเบราว์เซอร์ที่ไม่สนับสนุน Promises natively (กำลังมองหาคุณ IE) คุณจะต้องจัดหา polyfill ด้วยตนเอง
 
-- **See also:** [Async Update Queue](../guide/reactivity.html#Async-Update-Queue)
+- **ดูเพิ่มเติมที่:** [Async Update Queue](../guide/reactivity.html#Async-Update-Queue)
 
 ### Vue.set( target, key, value )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Array} target`
   - `{string | number} key`
   - `{any} value`
 
-- **Returns:** the set value.
+- **ส่งกลับ:** ค่าที่ตั้งไว้
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Adds a property to a reactive object, ensuring the new property is also reactive, so triggers view updates. This must be used to add new properties to reactive objects, as Vue cannot detect normal property additions (e.g. `this.myObject.newProperty = 'hi'`).
+  เพิ่มคุณสมบัติลงในออบเจกต์เชิงโต้ตอบเพื่อให้มั่นใจว่าพร็อพเพอร์ตี้ใหม่ยังเป็นปฏิกิริยาดังนั้นเรียกดูการอัปเดต ต้องใช้คุณสมบัตินี้เพื่อเพิ่มคุณสมบัติใหม่ให้กับวัตถุที่มีปฏิกิริยาเช่น Vue ไม่สามารถตรวจหาการเพิ่มคุณสมบัติตามปกติ  (เช่น `this.myObject.newProperty = 'hi'`).
 
-  <p class="tip">The target object cannot be a Vue instance, or the root data object of a Vue instance.</p>
+  <p class="tip">อ็อบเจ็กต์เป้าหมายไม่สามารถเป็นอินสแตนซ์ Vue หรืออ็อบเจ็กต์ข้อมูลหลักของอินสแตนซ์ Vue</p>
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
 ### Vue.delete( target, key )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Array} target`
   - `{string | number} key/index`
 
-  > Only in 2.2.0+: Also works with Array + index.
+  > เฉพาะใน 2.2.0+: ใช้งานได้กับดัชนี Array + เท่านั้น
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Delete a property on an object. If the object is reactive, ensure the deletion triggers view updates. This is primarily used to get around the limitation that Vue cannot detect property deletions, but you should rarely need to use it.
+  ลบคุณสมบัติบนวัตถุ ถ้าวัตถุเป็นปฏิกิริยาให้แน่ใจว่าการลบเรียกดูการปรับปรุง นี่ใช้เป็นหลักเพื่อหลีกเลี่ยงข้อ จำกัด ที่ Vue ไม่สามารถตรวจพบการลบคุณสมบัติได้ แต่คุณไม่จำเป็นต้องใช้บ่อยนัก
 
-  <p class="tip">The target object cannot be a Vue instance, or the root data object of a Vue instance.</p>
+  <p class="tip">อ็อบเจ็กต์เป้าหมายไม่สามารถเป็นอินสแตนซ์ Vue หรืออ็อบเจ็กต์ข้อมูลหลักของอินสแตนซ์ Vue</p>
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
 ### Vue.directive( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global directive.
+  ลงทะเบียนหรือเรียกค้นคำสั่งระดับโลก
 
   ``` js
-  // register
+  // ลงทะเบียน
   Vue.directive('my-directive', {
     bind: function () {},
     inserted: function () {},
@@ -297,94 +297,94 @@ type: api
     unbind: function () {}
   })
 
-  // register (function directive)
+  // ลงทะเบียน (function directive)
   Vue.directive('my-directive', function () {
     // this will be called as `bind` and `update`
   })
 
-  // getter, return the directive definition if registered
+  // getter, ส่งกลับคำนิยาม directive ถ้า
   var myDirective = Vue.directive('my-directive')
   ```
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **ดูเพิ่มเติมที่:** [Custom Directives](../guide/custom-directive.html)
 
 ### Vue.filter( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global filter.
+  ลงทะเบียนหรือเรียกใช้ตัวกรองทั่วโลก
 
   ``` js
-  // register
+  // ลงทะเบียน
   Vue.filter('my-filter', function (value) {
     // return processed value
   })
 
-  // getter, return the filter if registered
+  // getter ส่งคืนตัวกรอง ถ้า var ลงทะเบียน
   var myFilter = Vue.filter('my-filter')
   ```
 
-- **See also:** [Filters](../guide/filters.html)
+- **ดูเพิ่มเติมที่:** [Filters](../guide/filters.html)
 
 ### Vue.component( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `id`.
+  ลงทะเบียนหรือเรียกใช้คอมโพเนนต์ส่วนกลาง การลงทะเบียนอัตโนมัติ จะกำหนดส่วนประกอบของ `name` กับที่กำหนด `id`.
 
   ``` js
-  // register an extended constructor
+  // ลงทะเบียนขยาย constructor
   Vue.component('my-component', Vue.extend({ /* ... */ }))
 
-  // register an options object (automatically call Vue.extend)
+  // ลงทะเบียนวัตถุออบเจ็กต์ (โดยอัตโนมัติเรียก Vue.extend)
   Vue.component('my-component', { /* ... */ })
 
-  // retrieve a registered component (always return constructor)
+  // เรียกคืนคอมโพเนนต์ที่ลงทะเบียน (ส่งค่า constructor กลับเสมอ)
   var MyComponent = Vue.component('my-component')
   ```
 
-- **See also:** [Components](../guide/components.html)
+- **ดูเพิ่มเติมที่:** [คอมโพเนนต์](../guide/components.html)
 
 ### Vue.use( plugin )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Function} plugin`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+  ติดตั้งปลั๊กอิน Vue.js หากปลั๊กอินเป็น Object จะต้องเปิดเผย `install` วิธีการ ถ้าเป็นฟังก์ชันเองจะถือว่าเป็นวิธีการติดตั้ง วิธีการติดตั้งจะเรียกว่า Vue เป็นอาร์กิวเมนต์
 
-  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+  เมื่อใช้เมธอดนี้ในปลั๊กอินเดียวกันหลายครั้งปลั๊กอินจะถูกติดตั้งเพียงครั้งเดียว
 
-- **See also:** [Plugins](../guide/plugins.html)
+- **ดูเพิ่มเติมที่:** [Plugins](../guide/plugins.html)
 
 ### Vue.mixin( mixin )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object} mixin`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Apply a mixin globally, which affects every Vue instance created afterwards. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  ใช้ mixin ทั่วโลกซึ่งมีผลกับอินสแตนซ์ Vue ทุกตัวที่สร้างขึ้นหลังจากนั้น ซึ่งสามารถใช้โดยผู้เขียนปลั๊กอินเพื่อแทรกลักษณะการทำงานที่กำหนดเองลงในคอมโพเนนต์ ไม่แนะนำให้ใช้ในรหัสแอพลิเคชัน **ไม่แนะนำให้ใช้ในรหัสแอพลิเคชัน**.
 
-- **See also:** [Global Mixin](../guide/mixins.html#Global-Mixin)
+- **ดูเพิ่มเติม:** [Global Mixin](../guide/mixins.html#Global-Mixin)
 
 ### Vue.compile( template )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} template`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Compiles a template string into a render function. **Only available in the full build.**
+  คอมไพล์สตริงเทมเพลตในฟังก์ชันการแสดงผล **ใช้ได้เฉพาะในเวอร์ชันเต็ม**
 
   ``` js
   var res = Vue.compile('<div><span>{{ msg }}</span></div>')
@@ -398,13 +398,13 @@ type: api
   })
   ```
 
-- **See also:** [Render Functions](../guide/render-function.html)
+- **ดูเพิ่มเติมที่:** [Render Functions](../guide/render-function.html)
 
 ### Vue.version
 
-- **Details**: Provides the installed version of Vue as a string. This is especially useful for community plugins and components, where you might use different strategies for different versions.
+- **รายละเอียด**: ระบุเวอร์ชั่นที่ติดตั้ง Vue เป็นสตริง นี่เป็นประโยชน์อย่างยิ่งสำหรับปลั๊กอินและส่วนประกอบของชุมชนซึ่งคุณอาจใช้กลยุทธ์ที่แตกต่างกันสำหรับเวอร์ชันต่างๆ
 
-- **Usage**:
+- **การใช้งาน**:
 
   ```js
   var version = Number(Vue.version.split('.')[0])
@@ -414,7 +414,7 @@ type: api
   } else if (version === 1) {
     // Vue v1.x.x
   } else {
-    // Unsupported versions of Vue
+    // Vue ที่ไม่ได้รับการสนับสนุน
   }
   ```
 
