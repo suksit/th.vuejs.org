@@ -657,75 +657,75 @@ type: api
 
 - **ดูเพิ่มเติม:** [Instance Methods / Data - vm.$watch](#vm-watch)
 
-## Options / DOM
+## ตัวเลือก / DOM
 
 ### el
 
-- **Type:** `string | HTMLElement`
+- **ประเภท:** `string | HTMLElement`
 
-- **Restriction:** only respected in instance creation via `new`.
+- **ข้อจำกัด:** การใช้งานเฉพาะในการสร้างอินสแตนซ์ผ่าน `new`.
 
-- **Details:**
+- **รายละเอียด:**
 
-  Provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.
+  ระบุอินสแตนซ์ DOM ของ DOM ที่มีอยู่ให้กับอินสแตนซ์ Vue อาจเป็นสตริง selector CSS หรือ HTMLElement ที่เกิดขึ้นจริง
 
-  After the instance is mounted, the resolved element will be accessible as `vm.$el`.
+  หลังจากที่อินสแตนซ์ที่ติดตั้งองค์ประกอบการแก้ไขจะสามารถเข้าถึงได้เป็น `vm.$el`.
 
-  If this option is available at instantiation, the instance will immediately enter compilation; otherwise, the user will have to explicitly call `vm.$mount()` to manually start the compilation.
+  ถ้าตัวเลือกนี้พร้อมใช้งานที่ instantiation อินสแตนซ์จะเข้าสู่การรวบรวมทันที มิฉะนั้นผู้ใช้จะต้องเรียกอย่างชัดแจ้ง `vm.$mount()` เพื่อเริ่มคอมไพล์ด้วยตัวเอง
 
-  <p class="tip">The provided element merely serves as a mounting point. Unlike in Vue 1.x, the mounted element will be replaced with Vue-generated DOM in all cases. It is therefore not recommended to mount the root instance to `<html>` or `<body>`.</p>
+  <p class="tip">องค์ประกอบที่ให้ไว้ใช้เป็นจุดยึดเท่านั้น ไม่เหมือนกับ Vue 1.x องค์ประกอบที่ติดตั้งจะถูกแทนที่ด้วย DOM ที่สร้างโดย Vue ในทุกกรณี ดังนั้นจึงไม่แนะนำให้ติดตั้ง root ไว้ที่ `<html>` หรือ `<body>`.</p>
 
-  <p class="tip">If neither `render` function nor `template` option is present, the in-DOM HTML of the mounting DOM element will be extracted as the template. In this case, Runtime + Compiler build of Vue should be used.</p>
+  <p class="tip">ถ้าไม่มี `render` หรือ ฟังก์ชัน `template` มีอยู่แล้ว HTML ใน DOM ขององค์ประกอบ DOM ที่ยึดจะถูกดึงออกเป็นเทมเพลต ในกรณีนี้ควรใช้การสร้าง Runtime + Compiler ของ Vue</p>
 
-- **See also:**
+- **เพิ่มเติม:**
   - [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
   - [Runtime + Compiler vs. Runtime-only](../guide/installation.html#Runtime-Compiler-vs-Runtime-only)
 
-### template
+### เทมเพลต
 
-- **Type:** `string`
+- **ประเภท:** `string`
 
-- **Details:**
+- **รายละเอียด:**
 
-  A string template to be used as the markup for the Vue instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  เทมเพลตสตริงที่จะใช้เป็นมาร์กอัปสำหรับอินสแตนซ์ Vue เทมเพลตจะ **แทนที่** องค์ประกอบที่ติดตั้ง มาร์กอัพที่มีอยู่ภายในองค์ประกอบที่ติดตั้งจะถูกละเว้นเว้นแต่ช่องการจัดจำหน่ายเนื้อหาจะมีอยู่ในเทมเพลต
 
-  If the string starts with `#` it will be used as a querySelector and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
+  ถ้าสตริงเริ่มด้วย `#` จะใช้เป็น querySelector และใช้ innerHTML ของ element ที่เลือกเป็นสตริงเทมเพลต ซึ่งจะช่วยให้สามารถใช้ `<script type="x-template">` เพื่อรวมเทมเพลต
 
-  <p class="tip">From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.</p>
+  <p class="tip">จากมุมมองด้านความปลอดภัยคุณควรใช้เทมเพลต Vue ที่คุณสามารถเชื่อถือได้เท่านั้น อย่าใช้เนื้อหาที่ผู้ใช้สร้างเป็นเทมเพลตของคุณ</p>
 
-  <p class="tip">If render function is present in the Vue option, the template will be ignored.</p>
+  <p class="tip">ถ้าฟังก์ชันการแสดงผลมีอยู่ในอ็อพชัน Vue แม่แบบจะถูกละเว้น</p>
 
-- **See also:**
+- **เพิ่มเติม:**
   - [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
   - [Content Distribution with Slots](../guide/components.html#Content-Distribution-with-Slots)
 
-### render
+### เรนเดอร์
 
-  - **Type:** `(createElement: () => VNode) => VNode`
+  - **ประเภท:** `(createElement: () => VNode) => VNode`
 
-  - **Details:**
+  - **รายละเอียด:**
 
-    An alternative to string templates allowing you to leverage the full programmatic power of JavaScript. The render function receives a `createElement` method as it's first argument used to create `VNode`s.
+    ทางเลือกสำหรับเทมเพลตสตริงที่ช่วยให้คุณสามารถใช้ประโยชน์จากการใช้งาน JavaScript แบบเต็มรูปแบบได้ ฟังก์ชันการแสดงผลได้รับ `createElement` เมธอดเนื่องจากเป็นอาร์กิวเมนต์แรกที่ใช้ในการสร้าง `VNode`
 
-    If the component is a functional component, the render function also receives an extra argument `context`, which provides access to contextual data since functional components are instance-less.
+    ถ้าคอมโพเนนต์เป็นคอมโพเนนต์ฟังก์ชันฟังก์ชันการแสดงผลยังได้รับอาร์กิวเมนต์พิเศษ `context`, ซึ่งจะให้การเข้าถึงข้อมูลตามบริบทเนื่องจากคอมโพเนนต์การทำงานไม่ได้ใช้อินสแตนซ์
 
-    <p class="tip">The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element which is specified by the `el` option.</p>
+    <p class="tip">The `render` ฟังก์ชั่นที่มีความสำคัญมากกว่าฟังก์ชั่นการแสดงผลที่รวบรวมจาก `template` ตัวเลือกหรือใน DOM HTML แม่แบบขององค์ประกอบการติดตั้งที่ระบุไว้โดยตัวเลือก `el`</p>
 
-  - **See also:** [Render Functions](../guide/render-function.html)
+  - **ดูเพิ่มเติมที่:** [Render Functions](../guide/render-function.html)
 
 ### renderError
 
 > New in 2.2.0+
 
-  - **Type:** `(createElement: () => VNode, error: Error) => VNode`
+  - **ประเภท:** `(createElement: () => VNode, error: Error) => VNode`
 
-  - **Details:**
+  - **รายละเอียด:**
 
-    **Only works in development mode.**
+    **ทำงานได้เฉพาะในโหมดการพัฒนา**
 
-    Provide an alternative render output when the default `render` function encounters an error. The error will be passed to `renderError` as the second argument. This is particularly useful when used together with hot-reload.
+    ให้ผลลัพธ์การแสดงผลทางเลือกเมื่อ `render` ฟังก์ชันดีฟอลต์พบข้อผิดพลาด ข้อผิดพลาดจะถูกส่งผ่านไป `renderError` เป็นอาร์กิวเมนต์ที่สอง นี้เป็นประโยชน์อย่างยิ่งเมื่อใช้ร่วมกับ hot-reload
 
-  - **Example:**
+  - **ตัวอย่าง:**
 
     ``` js
     new Vue({
@@ -738,7 +738,7 @@ type: api
     }).$mount('#app')
     ```
 
-  - **See also:** [Render Functions](../guide/render-function.html)
+  - **ดูเพิ่มเติมที่:** [Render Functions](../guide/render-function.html)
 
 ## Options / Lifecycle Hooks
 
@@ -2327,17 +2327,17 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   - [Dynamic Components](../guide/components.html#Dynamic-Components)
   - [DOM Template Parsing Caveats](../guide/components.html#DOM-Template-Parsing-Caveats)
 
-## Built-In Components
+## Built-In คอมโพเนนต์
 
-### component
+### คอมโพเนนต์
 
-- **Props:**
+- **ข้อดี:**
   - `is` - string | ComponentDefinition | ComponentConstructor
   - `inline-template` - boolean
 
-- **Usage:**
+- **การใช้:**
 
-  A "meta component" for rendering dynamic components. The actual component to render is determined by the `is` prop:
+  "คอมโพเนนต์ meta" สำหรับการแสดงองค์ประกอบแบบไดนามิก คอมโพเนนต์ที่แท้จริง ในการแสดงผลจะถูกกำหนดโดย `is` :
 
   ```html
   <!-- a dynamic component controlled by -->
@@ -2348,27 +2348,27 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   <component :is="$options.components.child"></component>
   ```
 
-- **See also:** [Dynamic Components](../guide/components.html#Dynamic-Components)
+- **ดูเพิ่มเติมที่:** [Dynamic Components](../guide/components.html#Dynamic-Components)
 
 ### transition
 
-- **Props:**
-  - `name` - string, Used to automatically generate transition CSS class names. e.g. `name: 'fade'` will auto expand to `.fade-enter`, `.fade-enter-active`, etc. Defaults to `"v"`.
-  - `appear` - boolean, Whether to apply transition on initial render. Defaults to `false`.
-  - `css` - boolean, Whether to apply CSS transition classes. Defaults to `true`. If set to `false`, will only trigger JavaScript hooks registered via component events.
-  - `type` - string, Specify the type of transition events to wait for to determine transition end timing. Available values are `"transition"` and `"animation"`. By default, it will automatically detect the type that has a longer duration.
-  - `mode` - string, Controls the timing sequence of leaving/entering transitions. Available modes are `"out-in"` and `"in-out"`; defaults to simultaneous.
-  - `enter-class` - string
-  - `leave-class` - string
-  - `appear-class` - string
-  - `enter-to-class` - string
-  - `leave-to-class` - string
-  - `appear-to-class` - string
-  - `enter-active-class` - string
-  - `leave-active-class` - string
-  - `appear-active-class` - string
+- **ข้อดี:**
+  - `name` - สตริงใช้เพื่อสร้างชื่อคลาส CSS ขั้นสูงโดยอัตโนมัติ เช่น `name: 'fade'` จะขยายไปยังอัตโนมัติ `.fade-enter`, `.fade-enter-active`, ฯลฯ ค่าเริ่มต้นไป `"v"`.
+  - `appear` - boolean ไม่ว่าจะใช้การเปลี่ยนแปลงในการแสดงผลเริ่มต้นหรือไม่ ค่าเริ่มต้นเป็น `false`.
+  - `css` - boolean ไม่ว่าจะใช้ CSS transition ค่าเริ่มต้นเป็น `true`. ถ้าตั้งไว้เป็น `false`, จะเรียกใช้ JavaScript hooks ที่ลงทะเบียนผ่านเหตุการณ์ component เท่านั้น
+  - `type` - ระบุประเภทของเหตุการณ์การเปลี่ยนแปลงที่จะรอเพื่อกำหนดระยะเวลาการสิ้นสุดการเปลี่ยนแปลง ค่าที่มีอยู่คือ `"transition"` และ `"animation"`. โดยค่าเริ่มต้นระบบจะตรวจหาประเภทที่มีระยะเวลานานขึ้นโดยอัตโนมัติ
+  - `mode` - สตริง, ควบคุมลำดับเวลาของการออก / เข้าสู่ช่วง โหมดที่ใช้ได้คือ`"out-in"` และ `"in-out"`; ค่าเริ่มต้นเหมือนกัน
+  - `enter-class` - สตริง
+  - `leave-class` - สตริง
+  - `appear-class` - สตริง
+  - `enter-to-class` - สตริง
+  - `leave-to-class` - สตริง
+  - `appear-to-class` - สตริง
+  - `enter-active-class` - สตริง
+  - `leave-active-class` - สตริง
+  - `appear-active-class` - สตริง
 
-- **Events:**
+- **กรณี:**
   - `before-enter`
   - `before-leave`
   - `before-appear`
@@ -2382,22 +2382,22 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   - `leave-cancelled` (`v-show` only)
   - `appear-cancelled`
 
-- **Usage:**
+- **การใช้:**
 
-  `<transition>` serve as transition effects for **single** element/component. The `<transition>` only applies the transition behavior to the wrapped content inside; it doesn't render an extra DOM element, or show up in the inspected component hierarchy.
+  `<transition>` ทำหน้าที่เป็นเอฟเฟ็กการเปลี่ยนแปลงสำหรับองค์ประกอบ / คอมโพเนนต์ `<transition>` ใช้เฉพาะพฤติกรรมการเปลี่ยนไปยังเนื้อหาที่ห่อภายใน ไม่แสดงองค์ประกอบ DOM แบบพิเศษ หรือแสดงในการตรวจสอบ ลำดับชั้นคอมโพเนนต์
 
   ```html
-  <!-- simple element -->
+  <!-- องค์ประกอบที่เรียบง่าย -->
   <transition>
     <div v-if="ok">toggled content</div>
   </transition>
 
-  <!-- dynamic component -->
+  <!-- คอมโพเนนต์แบบไดนามิก -->
   <transition name="fade" mode="out-in" appear>
     <component :is="view"></component>
   </transition>
 
-  <!-- event hooking -->
+  <!-- เหตุการณ์ hooking -->
   <div id="transition-demo">
     <transition @after-enter="transitionComplete">
       <div v-show="ok">toggled content</div>
@@ -2417,25 +2417,25 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   }).$mount('#transition-demo')
   ```
 
-- **See also:** [Transitions: Entering, Leaving, and Lists](../guide/transitions.html)
+- **ดูเพิ่มเติม:** [Transitions: Entering, Leaving, and Lists](../guide/transitions.html)
 
-### transition-group
+### การเปลี่ยนแปลงกลุ่ม
 
-- **Props:**
-  - `tag` - string, defaults to `span`.
-  - `move-class` - overwrite CSS class applied during moving transition.
-  - exposes the same props as `<transition>` except `mode`.
+- **ข้อดี:**
+  - `tag` - สตริงค่าเริ่มต้นเป็น `span`.
+  - `move-class` - เขียนทับ CSS class ที่ใช้ระหว่างการย้ายการเปลี่ยนแปลง
+  - ทำให้มีพร็อพเดียวกับ `<transition>` ยกเว้น `mode`.
 
-- **Events:**
-  - exposes the same events as `<transition>`.
+- **เหตุการณ์:**
+  - แสดงถึงเหตุการณ์เช่นเดียวกับ `<transition>`.
 
-- **Usage:**
+- **การใช้:**
 
-  `<transition-group>` serve as transition effects for **multiple** elements/components. The `<transition-group>` renders a real DOM element. By default it renders a `<span>`, and you can configure what element is should render via the `tag` attribute.
+  `<transition-group>` เป็นผลการเปลี่ยนแปลงสำหรับ **หลายๆ** elements/components. The `<transition-group>` แสดงองค์ประกอบ DOM จริง โดยค่าเริ่มต้นจะแสดงผล `<span>`, และคุณสามารถกำหนดค่าสิ่งที่องค์ประกอบควรแสดงผลผ่านทาง ลักษณะ `tag` 
 
-  Note every child in a `<transition-group>` must be **uniquely keyed** for the animations to work properly.
+  `<transition-group>` ต้องเป็นคีย์ที่ **ไม่ซ้ำกัน**สำหรับภาพเคลื่อนไหวในการทำงานอย่างถูกต้อง
 
-  `<transition-group>` supports moving transitions via CSS transform. When a child's position on screen has changed after an updated, it will get applied a moving CSS class (auto generated from the `name` attribute or configured with the `move-class` attribute). If the CSS `transform` property is "transition-able" when the moving class is applied, the element will be smoothly animated to its destination using the [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
+  `<transition-group>` สนับสนุนการเปลี่ยนการเคลื่อนย้ายผ่านการแปลง CSS เมื่อตำแหน่งของเด็กบนหน้าจอมีการเปลี่ยนแปลงหลังจากอัปเดตแล้วจะมีการใช้คลาส CSS ที่กำลังเคลื่อนที่ (สร้างโดยอัตโนมัติจาก `name` หรือกำหนดค่าด้วย แอตทริบิวต์ `move-class` ). ถ้าเป็น CSS `transform` คุณสมบัติคือ "transition-able" เมื่อมีการเคลื่อนย้ายคลาสองค์ประกอบจะเคลื่อนไหวได้อย่างราบรื่นไปยังปลายทางโดยใช้ [FLIP technique](https://aerotwist.com/blog/flip-your-animations/).
 
   ```html
   <transition-group tag="ul" name="slide">
@@ -2445,37 +2445,37 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   </transition-group>
   ```
 
-- **See also:** [Transitions: Entering, Leaving, and Lists](../guide/transitions.html)
+- **ดูเพิ่มเติม:** [Transitions: Entering, Leaving, and Lists](../guide/transitions.html)
 
 ### keep-alive
 
-- **Props:**
-  - `include` - string or RegExp or Array. Only components matched by this will be cached.
-  - `exclude` - string or RegExp or Array. Any component matched by this will not be cached.
+- **ข้อดี:**
+  - `include` - สตริงหรือ RegExp หรือ Array เฉพาะคอมโพเนนต์ที่ตรงกับข้อมูลนี้จะถูกแคช
+  - `exclude` - สตริงหรือ RegExp หรือ Array คอมโพเนนต์ที่ตรงกับสิ่งนี้จะไม่ถูกแคช
 
-- **Usage:**
+- **การใช้:**
 
-  When wrapped around a dynamic component, `<keep-alive>` caches the inactive component instances without destroying them. Similar to `<transition>`, `<keep-alive>` is an abstract component: it doesn't render a DOM element itself, and doesn't show up in the component parent chain.
+  เมื่อล้อมรอบคอมโพเนนต์แบบไดนามิก `<keep-alive>` เก็บแคชอินสแตนซ์ของส่วนประกอบที่ไม่มีการใช้งานโดยไม่ทำลายองค์ประกอบเหล่านั้น คล้ายกับ `<transition>`, `<keep-alive>` เป็นคอมโพเนนต์แบบนามธรรม: มันไม่ได้ทำให้องค์ประกอบ DOM ที่ตัวเอง และไม่ปรากฏขึ้นในองค์ประกอบหลัก
 
-  When a component is toggled inside `<keep-alive>`, its `activated` and `deactivated` lifecycle hooks will be invoked accordingly.
+  เมื่อคอมโพเนนต์ถูกสลับด้านใน `<keep-alive>`, its `activated` และ `deactivated` วงจร hooks จะถูกเรียกตาม
 
   > In 2.2.0+ and above, `activated` and `deactivated` will fire for all nested components inside a `<keep-alive>` tree.
 
-  Primarily used with preserve component state or avoid re-rendering.
+  นำมาใช้เป็นหลักในการรักษาสถานะส่วนประกอบหรือหลีกเลี่ยงการแสดงผลอีกครั้ง
 
   ```html
-  <!-- basic -->
+  <!-- พื้นฐาน -->
   <keep-alive>
     <component :is="view"></component>
   </keep-alive>
 
-  <!-- multiple conditional children -->
+  <!-- มีหลายเงื่อนไข -->
   <keep-alive>
     <comp-a v-if="a > 1"></comp-a>
     <comp-b v-else></comp-b>
   </keep-alive>
 
-  <!-- used together with `<transition>` -->
+  <!-- ใช้ร่วมกับ `<transition>` -->
   <transition>
     <keep-alive>
       <component :is="view"></component>
@@ -2483,16 +2483,16 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
   </transition>
   ```
 
-  Note, `<keep-alive>` is designed for the case where it has one direct child component that is being toggled. It does not work if you have `v-for` inside it. When there are multiple conditional children, as above, `<keep-alive>` requires that only one child is rendered at a time.
+  Note, `<keep-alive>` ได้รับการออกแบบมาสำหรับกรณีที่มีส่วนประกอบลูกโดยตรงซึ่งกำลังมีการสลับ มันไม่ทำงานถ้าคุณมี `v-for` อยู่ภายใน เมื่อมีเด็กหลายเงื่อนไขตามที่ระบุไว้ด้านบน `<keep-alive>` ต้องการให้มีเพียงเด็กคนหนึ่งที่แสดงผลในแต่ละครั้งเท่านั้น
 
-- **`include` and `exclude`**
+- **`include` และ `exclude`**
 
   > New in 2.1.0+
 
-  The `include` and `exclude` props allow components to be conditionally cached. Both props can be a comma-delimited string, a RegExp or an Array:
+  The `include` and `exclude` props อนุญาตให้คอมโพเนนต์ถูกแคชตามเงื่อนไข อุปกรณ์ทั้งสองสามารถเป็นสตริงคั่นด้วยจุลภาค RegExp หรือ Array:
 
   ``` html
-  <!-- comma-delimited string -->
+  <!-- คั่นด้วยเครื่องหมายจุลภาค -->
   <keep-alive include="a,b">
     <component :is="view"></component>
   </keep-alive>
@@ -2502,35 +2502,35 @@ Used to denote a `<template>` element as a scoped slot, which is replaced by [`s
     <component :is="view"></component>
   </keep-alive>
 
-  <!-- Array (use `v-bind`) -->
+  <!-- อเรย์ (use `v-bind`) -->
   <keep-alive :include="['a', 'b']">
     <component :is="view"></component>
   </keep-alive>
   ```
 
-  The match is first checked on the component's own `name` option, then its local registration name (the key in the parent's `components` option) if the `name` option is not available. Anonymous components cannot be matched against.
+  การจับคู่จะได้รับการตรวจสอบตัว `name` เลือกของตัวเองเป็นอันดับแรกจากนั้นชื่อการลงทะเบียนท้องถิ่น (คีย์ใน `components` option) ถ้า `name` ตัวเลือกไม่พร้อมใช้งาน คอมโพเนนต์ที่ไม่ระบุชื่อไม่สามารถจับคู่กับ
 
-  <p class="tip">`<keep-alive>` does not work with functional components because they do not have instances to be cached.</p>
+  <p class="tip">`<keep-alive>` ไม่ทำงานกับส่วนประกอบที่ทำงานได้เนื่องจากไม่มีอินสแตนซ์ที่จะแคช</p>
 
-- **See also:** [Dynamic Components - keep-alive](../guide/components.html#keep-alive)
+- **ดูเพิ่มเติม:** [Dynamic Components - keep-alive](../guide/components.html#keep-alive)
 
-### slot
+### สล็อต
 
-- **Props:**
-  - `name` - string, Used for named slot.
+- **ข้อดี:**
+  - `name` - สตริงใช้สำหรับ named slot.
 
-- **Usage:**
+- **การใช้:**
 
-  `<slot>` serve as content distribution outlets in component templates. `<slot>` itself will be replaced.
+  `<slot>` เป็นแหล่งแจกจ่ายเนื้อหาในเทมเพลตของคอมโพเนนต์  `<slot>` ตัวเองจะถูกแทนที่
 
-  For detailed usage, see the guide section linked below.
+  สำหรับรายละเอียดการใช้งานให้ดูที่ส่วนคู่มือด้านล่าง
 
-- **See also:** [Content Distribution with Slots](../guide/components.html#Content-Distribution-with-Slots)
+- **ดูเพิ่มเติม:** [Content Distribution with Slots](../guide/components.html#Content-Distribution-with-Slots)
 
 ## VNode Interface
 
-- Please refer to the [VNode class declaration](https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js).
+- โปรดดูที่ [VNode class declaration](https://github.com/vuejs/vue/blob/dev/src/core/vdom/vnode.js).
 
 ## Server-Side Rendering
 
-- Please refer to the [vue-server-renderer package documentation](https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer).
+- โปรดดูที่ [vue-server-renderer package documentation](https://github.com/vuejs/vue/tree/dev/packages/vue-server-renderer).
