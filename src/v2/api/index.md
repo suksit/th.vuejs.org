@@ -418,41 +418,41 @@ type: api
   }
   ```
 
-## Options / Data
+## ตัวเลือก / ข้อมูล
 
-### data
+### ข้อมูล
 
-- **Type:** `Object | Function`
+- **ประเภท:** `Object | Function`
 
-- **Restriction:** Only accepts `Function` when used in a component definition.
+- **ข้อจำกัด:** เฉพาะ `Function` เมื่อใช้ในนิยามคอมโพเนนต์
 
-- **Details:**
+- **รายละเอียด:**
 
-  The data object for the Vue instance. Vue will recursively convert its properties into getter/setters to make it "reactive". **The object must be plain**: native objects such as browser API objects and prototype properties are ignored. A rule of thumb is that data should just be data - it is not recommended to observe objects with their own stateful behavior.
+  อ็อบเจ็กต์ข้อมูลสำหรับอินสแตนซ์ Vue Vue จะแปลงค่าคุณสมบัติให้เป็น recursively ใน getter / setters เพื่อให้เป็น "reactive" **Object ต้องเป็นแบบธรรมดา**: ออบเจ็กต์ดั้งเดิมเช่นออบเจ็กต์ API ของเบราว์เซอร์และคุณสมบัติต้นแบบจะถูกละเลย กฎของหัวแม่มือคือข้อมูลควรจะเป็นข้อมูล - ไม่ควรสังเกตวัตถุที่มีพฤติกรรมเป็นของตัวเอง.
 
-  Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.
+  เมื่อสังเกตแล้วคุณจะไม่สามารถเพิ่มคุณสมบัติปฏิกิริยาต่อกับอ็อบเจ็กต์ข้อมูลรากอีกต่อไป ขอแนะนำให้ประกาศล่วงหน้าคุณสมบัติระดับการตอบสนองระดับรากทั้งหมดก่อนที่จะสร้างอินสแตนซ์
 
-  After the instance is created, the original data object can be accessed as `vm.$data`. The Vue instance also proxies all the properties found on the data object, so `vm.a` will be equivalent to `vm.$data.a`.
+  หลังจากสร้างอินสแตนซ์แล้วคุณสามารถเข้าถึงอ็อบเจ็กต์ข้อมูลเดิมได้ เช่น `vm.$data`. อินสแตนซ์ Vue ยังพร็อกซีคุณสมบัติทั้งหมดที่พบในอ็อบเจ็กต์ข้อมูลเช่นกัน `vm.a` จะเท่ากับ `vm.$data.a`.
 
-  Properties that start with `_` or `$` will **not** be proxied on the Vue instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `vm.$data._property`.
+  คุณสมบัติที่ขึ้นต้นด้วย `_` หรือ `$` จะ **ไม่** ถูก proxied ในตัวอย่าง Vue เนื่องจากอาจขัดแย้งกับคุณสมบัติภายในของ Vue และวิธี API คุณจะต้องเข้าถึงพวกเขาเป็น `vm.$data._property`.
 
-  When defining a **component**, `data` must be declared as a function that returns the initial data object, because there will be many instances created using the same definition. If we use a plain object for `data`, that same object will be **shared by reference** across all instances created! By providing a `data` function, every time a new instance is created we can call it to return a fresh copy of the initial data.
+  เมื่อกำหนดคอมโพเนนต์ **component**, `data` ต้องประกาศเป็นฟังก์ชันที่ส่งคืนออบเจ็กต์ข้อมูลเริ่มต้นเนื่องจากจะมีหลายอินสแตนซ์ที่สร้างโดยใช้คำจำกัดความเดียวกัน ถ้าเราใช้วัตถุธรรมดาสำหรับ `data`, วัตถุเดียวกันนั้นจะเป็น **shared by reference** ข้ามทุกกรณีที่สร้างขึ้น โดยการให้ฟังก์ชั่น `data` , ทุกครั้งที่สร้างอินสแตซ์ใหม่ เราสามารถเรียกใช้ได้ เพื่อส่งคืนข้อมูลเริ่มต้น
 
-  If required, a deep clone of the original object can be obtained by passing `vm.$data` through `JSON.parse(JSON.stringify(...))`.
+  หากจำเป็นต้องใช้โคลนลึกของวัตถุต้นฉบับได้ โดยการ passing `vm.$data` ผ่าน `JSON.parse(JSON.stringify(...))`.
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var data = { a: 1 }
 
-  // direct instance creation
+  // การสร้างอินสแตนซ์โดยตรง
   var vm = new Vue({
     data: data
   })
   vm.a // => 1
   vm.$data === data // => true
 
-  // must use function when in Vue.extend()
+  // ต้องใช้ฟังก์ชันเมื่ออยู่ใน Vue.extend()
   var Component = Vue.extend({
     data: function () {
       return { a: 1 }
@@ -460,36 +460,36 @@ type: api
   })
   ```
 
-  Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  ถ้าคุณใช้ฟังก์ชัน arrow กับคุณสมบัติ `data` , `this` จะไม่เป็นอินสแตนซ์ของคอมโพเนนต์ แต่คุณยังคงสามารถเข้าถึงอินสแตนซ์เป็นอาร์กิวเมนต์แรกของฟังก์ชัน:
 
   ```js
   data: vm => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
-### props
+### ส่งผ่าน
 
-- **Type:** `Array<string> | Object`
+- **ประเภท:** `Array<string> | Object`
 
-- **Details:**
+- **รายละเอียด:**
 
-  A list/hash of attributes that are exposed to accept data from the parent component. It has an Array-based simple syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.
+  รายการ / แฮชของแอ็ตทริบิวต์ที่รับข้อมูลจากคอมโพเนนต์หลัก มีไวยากรณ์ที่ใช้ Array และไวยากรณ์ Object-based ซึ่งจะช่วยให้สามารถกำหนดค่าขั้นสูงเช่นการตรวจสอบชนิดการตรวจสอบความถูกต้องและค่าดีฟอลต์
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
-  // simple syntax
+  // ไวยากรณ์ง่ายๆ
   Vue.component('props-demo-simple', {
     props: ['size', 'myMessage']
   })
 
-  // object syntax with validation
+  // รูปแบบวัตถุที่มีการตรวจสอบ
   Vue.component('props-demo-advanced', {
     props: {
-      // type check
+      // ตรวจสอบ
       height: Number,
-      // type check plus other validations
+      // ตรวจสอบประเภท 
       age: {
         type: Number,
         default: 0,
@@ -502,19 +502,19 @@ type: api
   })
   ```
 
-- **See also:** [Props](../guide/components.html#Props)
+- **ดูเพิ่มเติม:** [Props](../guide/components.html#Props)
 
 ### propsData
 
-- **Type:** `{ [key: string]: any }`
+- **ประเภท:** `{ [key: string]: any }`
 
-- **Restriction:** only respected in instance creation via `new`.
+- **ข้อจำกัด:** การใช้งานเฉพาะในการสร้างอินสแตนซ์ผ่าน `new`.
 
-- **Details:**
+- **รายละเอียด:**
 
-  Pass props to an instance during its creation. This is primarily intended to make unit testing easier.
+  ส่งพร็อพไปยังอินสแตนซ์ระหว่างการสร้าง นี้มีวัตถุประสงค์หลักเพื่อให้การทดสอบหน่วยง่ายขึ้น
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var Comp = Vue.extend({
@@ -529,15 +529,15 @@ type: api
   })
   ```
 
-### computed
+### คำนวณ
 
-- **Type:** `{ [key: string]: Function | { get: Function, set: Function } }`
+- **ประเภท:** `{ [key: string]: Function | { get: Function, set: Function } }`
 
-- **Details:**
+- **รายละเอียด:**
 
-  Computed properties to be mixed into the Vue instance. All getters and setters have their `this` context automatically bound to the Vue instance.
+  คุณสมบัติเชิงคำนวณที่จะผสมลงในตัวอย่าง Vue getters ทั้งหมดและ setters มีของพวกเขา `this` บริบทเชื่อมโยงกับอินสแตนซ์ Vue โดยอัตโนมัติ
 
-  Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  ถ้าคุณใช้ฟังก์ชัน arrow กับคุณสมบัติที่คำนวณ `this` จะไม่เป็นอินสแตนซ์ของคอมโพเนนต์ แต่คุณยังคงสามารถเข้าถึงอินสแตนซ์นี้เป็นอาร์กิวเมนต์แรกของฟังก์ชัน:
 
   ```js
   computed: {
@@ -545,19 +545,19 @@ type: api
   }
   ```
 
-  Computed properties are cached, and only re-computed on reactive dependency changes. Note that if a certain dependency is out of the instance's scope (i.e. not reactive), the computed property will __not__ be updated.
+  คุณสมบัติเชิงคำนวณจะถูกแคชและคำนวณใหม่เฉพาะเมื่อมีการเปลี่ยนแปลงการอ้างอิงขึ้น โปรดทราบว่าถ้าพึ่งพาอยู่นอกขอบเขตของอินสแตนซ์ (เช่น not reactive), คุณสมบัติที่คำนวณจะไม่ได้รับการปรับปรุง
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ```js
   var vm = new Vue({
     data: { a: 1 },
     computed: {
-      // get only
+      // ได้รับอย่างเดียว
       aDouble: function () {
         return this.a * 2
       },
-      // both get and set
+      // ทั้งสองได้รับและตั้งค่า
       aPlus: {
         get: function () {
           return this.a + 1
@@ -574,19 +574,19 @@ type: api
   vm.aDouble // => 4
   ```
 
-- **See also:** [Computed Properties](../guide/computed.html)
+- **ดูเพิ่มเติม:** [Computed Properties](../guide/computed.html)
 
-### methods
+### เมธอด
 
-- **Type:** `{ [key: string]: Function }`
+- **ประเภท:** `{ [key: string]: Function }`
 
-- **Details:**
+- **รายละเอียด:**
 
-  Methods to be mixed into the Vue instance. You can access these methods directly on the VM instance, or use them in directive expressions. All methods will have their `this` context automatically bound to the Vue instance.
+  วิธีการผสมลงในตัวอย่าง Vue คุณสามารถเข้าถึงวิธีการเหล่านี้ได้โดยตรงจากอินสแตนซ์ของ VM หรือใช้ในการแสดงคำสั่ง วิธีการทั้งหมดจะมี `this` บริบทเชื่อมโยงกับอินสแตนซ์ Vue โดยอัตโนมัติ
 
-  <p class="tip">Note that __you should not use an arrow function to define a method__ (e.g. `plus: () => this.a++`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.a` will be undefined.</p>
+  <p class="tip">โปรดทราบว่า คุณไม่ควรใช้ฟังก์ชัน arrow เพื่อกำหนดเมธอด (เช่น `plus: () => this.a++`). เหตุผลก็คือฟังก์ชันลูกศรผูกบริบทหลัก ดังนั้น `this` จะไม่เป็นตัวอย่าง Vue ตามที่คุณคาดหวังและ `this.a` จะไม่ได้กำหนดไว้</p>
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ```js
   var vm = new Vue({
@@ -601,17 +601,17 @@ type: api
   vm.a // 2
   ```
 
-- **See also:** [Event Handling](../guide/events.html)
+- **ดูเพิ่มเติม:** [Event Handling](../guide/events.html)
 
 ### watch
 
-- **Type:** `{ [key: string]: string | Function | Object | Array}`
+- **ประเภท:** `{ [key: string]: string | Function | Object | Array}`
 
-- **Details:**
+- **รายละเอียด:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The Vue instance will call `$watch()` for each entry in the object at instantiation.
+  วัตถุที่คีย์เป็นนิพจน์เพื่อดูและค่าคือการเรียกกลับที่ตรงกัน ค่านี้อาจเป็นสตริงชื่อเมธอดหรือ Object ที่มีตัวเลือกเพิ่มเติม อินสแตนซ์ Vue จะเรียก `$watch()` ใช้งานแต่ละรายการในอ็อบเจ็กต์ที่ instantiation
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var vm = new Vue({
@@ -630,14 +630,14 @@ type: api
       a: function (val, oldVal) {
         console.log('new: %s, old: %s', val, oldVal)
       },
-      // string method name
+      // ชื่อเมธอดสตริง
       b: 'someMethod',
-      // deep watcher
+      // เฝ้าระวัง
       c: {
         handler: function (val, oldVal) { /* ... */ },
         deep: true
       },
-      // the callback will be called immediately after the start of the observation
+      // callback จะเรียกทันทีหลังจากเริ่มสังเกต
       d: {
         handler: function (val, oldVal) { /* ... */ },
         immediate: true
@@ -646,16 +646,16 @@ type: api
         function handle1 (val, oldVal) { /* ... */ },
         function handle2 (val, oldVal) { /* ... */ }
       ],
-      // watch vm.e.f's value: {g: 5}
+      // ดูค่าของ vm.e.f's : {g: 5}
       'e.f': function (val, oldVal) { /* ... */ }
     }
   })
   vm.a = 2 // => new: 2, old: 1
   ```
 
-  <p class="tip">Note that __you should not use an arrow function to define a watcher__ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.updateAutocomplete` will be undefined.</p>
+  <p class="tip">คุณไม่ควรใช้ฟังก์ชัน arrow เพื่อกำหนดตัวเฝ้า (เช่น `searchQuery: newValue => this.updateAutocomplete(newValue)`). สาเหตุที่ฟังก์ชัน arrow ผูกบริบทหลัก ดังนั้น `this` จะไม่เป็นตัวอย่าง Vue ตามที่คุณคาดหวังและ `this.updateAutocomplete` จะไม่ได้กำหนดไว้</p>
 
-- **See also:** [Instance Methods / Data - vm.$watch](#vm-watch)
+- **ดูเพิ่มเติม:** [Instance Methods / Data - vm.$watch](#vm-watch)
 
 ## Options / DOM
 
