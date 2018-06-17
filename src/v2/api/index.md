@@ -1,33 +1,33 @@
 ---
-title: API
+title: เอพีไอ
 type: api
 ---
 
 ## Global Config
 
-`Vue.config` is an object containing Vue's global configurations. You can modify its properties listed below before bootstrapping your application:
+`Vue.config` เป็นวัตถุที่มีการกำหนดค่าทั่วโลกของ Vue คุณสามารถแก้ไขคุณสมบัติของรายการด้านล่างก่อนที่จะบูตแอ็พพลิเคชันของคุณ:
 
 ### silent
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `false`
+- **ค่าเริ่มต้น:** `false`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.silent = true
   ```
 
-  Suppress all Vue logs and warnings.
+  ยกเลิกการบันทึกและคำเตือน Vue ทั้งหมด
 
 ### optionMergeStrategies
 
-- **Type:** `{ [key: string]: Function }`
+- **ประเภท:** `{ [key: string]: Function }`
 
-- **Default:** `{}`
+- **ค่าเริ่มต้น:** `{}`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.optionMergeStrategies._my_option = function (parent, child, vm) {
@@ -41,34 +41,34 @@ type: api
   // Profile.options._my_option = 2
   ```
 
-  Define custom merging strategies for options.
+  กำหนดกลยุทธ์การผสานที่กำหนดเองสำหรับตัวเลือก
 
-  The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.
+  ยุบตารางนี้ขยายตารางนี้กลยุทธ์การผสานได้รับค่าของอ็อพชันที่กำหนดไว้ในอินสแตนซ์ระดับบนสุดและอันดับที่สองตามลำดับ อินสแตนซ์ Vue ของบริบทถูกส่งผ่านเป็นอาร์กิวเมนต์ที่สาม
 
-- **See also:** [Custom Option Merging Strategies](../guide/mixins.html#Custom-Option-Merge-Strategies)
+- **ดูเพิ่มเติม:** [กลยุทธ์การรวมกลยุทธ์ที่ผันผวน](../guide/mixins.html#Custom-Option-Merge-Strategies)
 
 ### devtools
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `true` (`false` in production builds)
+- **ค่าเริ่มต้น:** `true` (`false` in production builds)
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
-  // make sure to set this synchronously immediately after loading Vue
+  //ตรวจสอบให้แน่ใจว่าได้ตั้งค่านี้พร้อมกันทันทีหลังจากโหลด Vue
   Vue.config.devtools = true
   ```
 
-  Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. This option's default value is `true` in development builds and `false` in production builds. You can set it to `true` to enable inspection for production builds.
+  กำหนดค่าว่าจะอนุญาต [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. ค่าเริ่มต้นของตัวเลือกนี้เป็น `true`ในการสร้างการพัฒนาและ `false` ในการสร้างการผลิต คุณสามารถกำหนดให้เป็น `true` เพื่อเปิดใช้งานการตรวจสอบสำหรับการสร้างการผลิต
 
 ### errorHandler
 
-- **Type:** `Function`
+- **ประเภท:** `Function`
 
-- **Default:** `undefined`
+- **ค่าเริ่มต้น:** `undefined`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.errorHandler = function (err, vm, info) {
@@ -78,67 +78,67 @@ type: api
   }
   ```
 
-  Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the Vue instance.
+  กำหนดตัวจัดการข้อผิดพลาดที่ไม่สามารถตรวจจับได้ระหว่างฟังก์ชันการแสดงผลและตัวแสดงส่วนประกอบ ตัวจัดการได้รับการเรียกด้วยข้อผิดพลาดและอินสแตนซ์ Vue
 
   > In 2.2.0+, this hook also captures errors in component lifecycle hooks. Also, when this hook is `undefined`, captured errors will be logged with `console.error` instead of crashing the app.
 
   > In 2.4.0+ this hook also captures errors thrown inside Vue custom event handlers.
 
-  > Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+  > บริการติดตามข้อผิดพลาด [Sentry](https://sentry.io/for/vue/) และ [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) ให้การผสานรวมอย่างเป็นทางการโดยใช้ตัวเลือกนี้
 
 ### warnHandler
 
 > New in 2.4.0+
 
-- **Type:** `Function`
+- **ประเภท:** `Function`
 
-- **Default:** `undefined`
+- **ค่าเริ่มต้น:** `undefined`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.warnHandler = function (msg, vm, trace) {
-    // `trace` is the component hierarchy trace
+    // `trace` คือการตรวจสอบลำดับชั้นคอมโพเนนต์
   }
   ```
 
-  Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.
+  กำหนดตัวจัดการที่กำหนดเองสำหรับคำเตือน Vue รันไทม์ โปรดทราบว่าสิ่งนี้ใช้ได้เฉพาะในระหว่างการพัฒนาและถูกละเลยในการผลิต
 
 ### ignoredElements
 
-- **Type:** `Array<string | RegExp>`
+- **ประเภท:** `Array<string | RegExp>`
 
-- **Default:** `[]`
+- **ค่าเริ่มต้น:** `[]`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.ignoredElements = [
     'my-custom-web-component',
     'another-web-component',
-    // Use a `RegExp` to ignore all elements that start with "ion-"
+    // ใช้ "RegExp" เพื่อละเว้นองค์ประกอบทั้งหมด ที่ขึ้นต้นด้วย "ion-"
     // 2.5+ only
     /^ion-/
   ]
   ```
 
-  Make Vue ignore custom elements defined outside of Vue (e.g., using the Web Components APIs). Otherwise, it will throw a warning about an `Unknown custom element`, assuming that you forgot to register a global component or misspelled a component name.
+  ทำให้ Vue ละเว้นองค์ประกอบที่กำหนดเองที่กำหนดไว้ด้านนอกของ Vue (เช่นการใช้ Web Components APIs) มิฉะนั้นจะเป็นการเตือนเกี่ยวกับ `Unknown custom element`, สมมติว่าคุณลืมที่จะลงทะเบียนคอมโพเนนต์ส่วนกลางหรือสะกดชื่อคอมโพเนนต์
 
 ### keyCodes
 
-- **Type:** `{ [key: string]: number | Array<number> }`
+- **ประเภท:** `{ [key: string]: number | Array<number> }`
 
-- **Default:** `{}`
+- **ค่าเริ่มต้น:** `{}`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.keyCodes = {
     v: 86,
     f1: 112,
-    // camelCase won`t work
+    // camelCase จะไม่ทำงาน
     mediaPlayPause: 179,
-    // instead you can use kebab-case with double quotation marks
+    // คุณสามารถใช้ kebab-case กับเครื่องหมาย double quotation 
     "media-play-pause": 179,
     up: [38, 87]
   }
@@ -148,51 +148,51 @@ type: api
   <input type="text" @keyup.media-play-pause="method">
   ```
 
-  Define custom key alias(es) for `v-on`.
+  กำหนดนามแฝงคีย์ที่กำหนดเอง (es) สำหรับ `v-on`.
 
-### performance
+### ประสิทธิภาพ
 
 > New in 2.2.0+
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `false (from 2.2.3+)`
+- **ค่าเริ่มต้น:** `false (from 2.2.3+)`
 
-- **Usage**:
+- **การใช้งาน**:
 
-  Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+  ตั้งค่านี้เป็น `true` เปิดใช้งานคอมโพเนนต์ init เรียบเรียงทำให้เดสก์ท็อปและแก้ไขการสืบค้นกลับประสิทธิภาพในแถบประสิทธิภาพ / ไทม์ไลน์ของเบราว์เซอร์ devtool ใช้งานได้เฉพาะในโหมดการพัฒนาและในเบราว์เซอร์ที่สนับสนุน API [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
 
 ### productionTip
 
 > New in 2.2.0+
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `true`
+- **ค่าเริ่มต้น:** `true`
 
-- **Usage**:
+- **การใช้งาน**:
 
-  Set this to `false` to prevent the production tip on Vue startup.
+  ตั้งค่านี้เป็น `false` เพื่อป้องกันไม่ให้เคล็ดลับการผลิตเมื่อเริ่มต้นใช้งาน Vue
 
 ## Global API
 
-### Vue.extend( options )
+### Vue.extend( ตัวเลือก )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object} options`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Create a "subclass" of the base Vue constructor. The argument should be an object containing component options.
+  การสร้าง "subclass" ของตัวสร้างฐาน Vue อาร์กิวเมนต์ควรเป็นอ็อบเจ็กต์ที่ประกอบด้วยตัวเลือกคอมโพเนนต์
 
-  The special case to note here is the `data` option - it must be a function when used with `Vue.extend()`.
+  กรณีพิเศษที่จะต้องทราบที่นี่เป็น `data` ตัวเลือก - จะต้องมีฟังก์ชั่นเมื่อใช้กับ `Vue.extend()`.
 
   ``` html
   <div id="mount-point"></div>
   ```
 
   ``` js
-  // create constructor
+  // สร้าง constructor
   var Profile = Vue.extend({
     template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
     data: function () {
@@ -203,92 +203,92 @@ type: api
       }
     }
   })
-  // create an instance of Profile and mount it on an element
+  // สร้างอินสแตนซ์ของ Profile และติดตั้งบน element
   new Profile().$mount('#mount-point')
   ```
 
-  Will result in:
+  จะส่งผลให้:
 
   ``` html
   <p>Walter White aka Heisenberg</p>
   ```
 
-- **See also:** [Components](../guide/components.html)
+- **ดูเพิ่มเติมที่:** [คอมโพเนนต์](../guide/components.html)
 
 ### Vue.nextTick( [callback, context] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Function} [callback]`
   - `{Object} [context]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Defer the callback to be executed after the next DOM update cycle. Use it immediately after you've changed some data to wait for the DOM update.
+  เลื่อนการเรียกกลับที่จะดำเนินการหลังจากรอบการอัพเดท DOM ครั้งต่อไป ใช้ทันทีหลังจากที่คุณได้เปลี่ยนข้อมูลบางส่วนเพื่อรอการอัปเดต DOM
 
   ``` js
-  // modify data
+  // แก้ไขข้อมูล
   vm.msg = 'Hello'
-  // DOM not updated yet
+  // DOM ยังไม่ได้อัพเดต
   Vue.nextTick(function () {
-    // DOM updated
+    // ปรับปรุง DOM แล้ว
   })
 
   // usage as a promise (2.1.0+, see note below)
   Vue.nextTick()
     .then(function () {
-      // DOM updated
+      // ปรับปรุง DOM แล้ว
     })
   ```
 
-  > New in 2.1.0+: returns a Promise if no callback is provided and Promise is supported in the execution environment. Please note that Vue does not come with a Promise polyfill, so if you target browsers that don't support Promises natively (looking at you, IE), you will have to provide a polyfill yourself.
+  > ใน 2.1.0+: ส่งกลับ Promise ถ้าไม่มีการเรียกกลับและ Promise ได้รับการสนับสนุนในสภาพแวดล้อมการทำงาน โปรดทราบว่า Vue ไม่ได้มี Promise polyfill ดังนั้นหากคุณกำหนดเป้าหมายเบราว์เซอร์ที่ไม่สนับสนุน Promises natively (กำลังมองหาคุณ IE) คุณจะต้องจัดหา polyfill ด้วยตนเอง
 
-- **See also:** [Async Update Queue](../guide/reactivity.html#Async-Update-Queue)
+- **ดูเพิ่มเติมที่:** [Async Update Queue](../guide/reactivity.html#Async-Update-Queue)
 
 ### Vue.set( target, key, value )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Array} target`
   - `{string | number} key`
   - `{any} value`
 
-- **Returns:** the set value.
+- **ส่งกลับ:** ค่าที่ตั้งไว้
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Adds a property to a reactive object, ensuring the new property is also reactive, so triggers view updates. This must be used to add new properties to reactive objects, as Vue cannot detect normal property additions (e.g. `this.myObject.newProperty = 'hi'`).
+  เพิ่มคุณสมบัติลงในออบเจกต์เชิงโต้ตอบเพื่อให้มั่นใจว่าพร็อพเพอร์ตี้ใหม่ยังเป็นปฏิกิริยาดังนั้นเรียกดูการอัปเดต ต้องใช้คุณสมบัตินี้เพื่อเพิ่มคุณสมบัติใหม่ให้กับวัตถุที่มีปฏิกิริยาเช่น Vue ไม่สามารถตรวจหาการเพิ่มคุณสมบัติตามปกติ  (เช่น `this.myObject.newProperty = 'hi'`).
 
-  <p class="tip">The target object cannot be a Vue instance, or the root data object of a Vue instance.</p>
+  <p class="tip">อ็อบเจ็กต์เป้าหมายไม่สามารถเป็นอินสแตนซ์ Vue หรืออ็อบเจ็กต์ข้อมูลหลักของอินสแตนซ์ Vue</p>
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
 ### Vue.delete( target, key )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Array} target`
   - `{string | number} key/index`
 
-  > Only in 2.2.0+: Also works with Array + index.
+  > เฉพาะใน 2.2.0+: ใช้งานได้กับดัชนี Array + เท่านั้น
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Delete a property on an object. If the object is reactive, ensure the deletion triggers view updates. This is primarily used to get around the limitation that Vue cannot detect property deletions, but you should rarely need to use it.
+  ลบคุณสมบัติบนวัตถุ ถ้าวัตถุเป็นปฏิกิริยาให้แน่ใจว่าการลบเรียกดูการปรับปรุง นี่ใช้เป็นหลักเพื่อหลีกเลี่ยงข้อ จำกัด ที่ Vue ไม่สามารถตรวจพบการลบคุณสมบัติได้ แต่คุณไม่จำเป็นต้องใช้บ่อยนัก
 
-  <p class="tip">The target object cannot be a Vue instance, or the root data object of a Vue instance.</p>
+  <p class="tip">อ็อบเจ็กต์เป้าหมายไม่สามารถเป็นอินสแตนซ์ Vue หรืออ็อบเจ็กต์ข้อมูลหลักของอินสแตนซ์ Vue</p>
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
 ### Vue.directive( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global directive.
+  ลงทะเบียนหรือเรียกค้นคำสั่งระดับโลก
 
   ``` js
-  // register
+  // ลงทะเบียน
   Vue.directive('my-directive', {
     bind: function () {},
     inserted: function () {},
@@ -297,94 +297,94 @@ type: api
     unbind: function () {}
   })
 
-  // register (function directive)
+  // ลงทะเบียน (function directive)
   Vue.directive('my-directive', function () {
     // this will be called as `bind` and `update`
   })
 
-  // getter, return the directive definition if registered
+  // getter, ส่งกลับคำนิยาม directive ถ้า
   var myDirective = Vue.directive('my-directive')
   ```
 
-- **See also:** [Custom Directives](../guide/custom-directive.html)
+- **ดูเพิ่มเติมที่:** [Custom Directives](../guide/custom-directive.html)
 
 ### Vue.filter( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global filter.
+  ลงทะเบียนหรือเรียกใช้ตัวกรองทั่วโลก
 
   ``` js
-  // register
+  // ลงทะเบียน
   Vue.filter('my-filter', function (value) {
     // return processed value
   })
 
-  // getter, return the filter if registered
+  // getter ส่งคืนตัวกรอง ถ้า var ลงทะเบียน
   var myFilter = Vue.filter('my-filter')
   ```
 
-- **See also:** [Filters](../guide/filters.html)
+- **ดูเพิ่มเติมที่:** [Filters](../guide/filters.html)
 
 ### Vue.component( id, [definition] )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} id`
   - `{Function | Object} [definition]`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Register or retrieve a global component. Registration also automatically sets the component's `name` with the given `id`.
+  ลงทะเบียนหรือเรียกใช้คอมโพเนนต์ส่วนกลาง การลงทะเบียนอัตโนมัติ จะกำหนดส่วนประกอบของ `name` กับที่กำหนด `id`.
 
   ``` js
-  // register an extended constructor
+  // ลงทะเบียนขยาย constructor
   Vue.component('my-component', Vue.extend({ /* ... */ }))
 
-  // register an options object (automatically call Vue.extend)
+  // ลงทะเบียนวัตถุออบเจ็กต์ (โดยอัตโนมัติเรียก Vue.extend)
   Vue.component('my-component', { /* ... */ })
 
-  // retrieve a registered component (always return constructor)
+  // เรียกคืนคอมโพเนนต์ที่ลงทะเบียน (ส่งค่า constructor กลับเสมอ)
   var MyComponent = Vue.component('my-component')
   ```
 
-- **See also:** [Components](../guide/components.html)
+- **ดูเพิ่มเติมที่:** [คอมโพเนนต์](../guide/components.html)
 
 ### Vue.use( plugin )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object | Function} plugin`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Install a Vue.js plugin. If the plugin is an Object, it must expose an `install` method. If it is a function itself, it will be treated as the install method. The install method will be called with Vue as the argument.
+  ติดตั้งปลั๊กอิน Vue.js หากปลั๊กอินเป็น Object จะต้องเปิดเผย `install` วิธีการ ถ้าเป็นฟังก์ชันเองจะถือว่าเป็นวิธีการติดตั้ง วิธีการติดตั้งจะเรียกว่า Vue เป็นอาร์กิวเมนต์
 
-  When this method is called on the same plugin multiple times, the plugin will be installed only once.
+  เมื่อใช้เมธอดนี้ในปลั๊กอินเดียวกันหลายครั้งปลั๊กอินจะถูกติดตั้งเพียงครั้งเดียว
 
-- **See also:** [Plugins](../guide/plugins.html)
+- **ดูเพิ่มเติมที่:** [Plugins](../guide/plugins.html)
 
 ### Vue.mixin( mixin )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{Object} mixin`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Apply a mixin globally, which affects every Vue instance created afterwards. This can be used by plugin authors to inject custom behavior into components. **Not recommended in application code**.
+  ใช้ mixin ทั่วโลกซึ่งมีผลกับอินสแตนซ์ Vue ทุกตัวที่สร้างขึ้นหลังจากนั้น ซึ่งสามารถใช้โดยผู้เขียนปลั๊กอินเพื่อแทรกลักษณะการทำงานที่กำหนดเองลงในคอมโพเนนต์ ไม่แนะนำให้ใช้ในรหัสแอพลิเคชัน **ไม่แนะนำให้ใช้ในรหัสแอพลิเคชัน**.
 
-- **See also:** [Global Mixin](../guide/mixins.html#Global-Mixin)
+- **ดูเพิ่มเติม:** [Global Mixin](../guide/mixins.html#Global-Mixin)
 
 ### Vue.compile( template )
 
-- **Arguments:**
+- **อาร์กิวเมนต์:**
   - `{string} template`
 
-- **Usage:**
+- **การใช้งาน:**
 
-  Compiles a template string into a render function. **Only available in the full build.**
+  คอมไพล์สตริงเทมเพลตในฟังก์ชันการแสดงผล **ใช้ได้เฉพาะในเวอร์ชันเต็ม**
 
   ``` js
   var res = Vue.compile('<div><span>{{ msg }}</span></div>')
@@ -398,13 +398,13 @@ type: api
   })
   ```
 
-- **See also:** [Render Functions](../guide/render-function.html)
+- **ดูเพิ่มเติมที่:** [Render Functions](../guide/render-function.html)
 
 ### Vue.version
 
-- **Details**: Provides the installed version of Vue as a string. This is especially useful for community plugins and components, where you might use different strategies for different versions.
+- **รายละเอียด**: ระบุเวอร์ชั่นที่ติดตั้ง Vue เป็นสตริง นี่เป็นประโยชน์อย่างยิ่งสำหรับปลั๊กอินและส่วนประกอบของชุมชนซึ่งคุณอาจใช้กลยุทธ์ที่แตกต่างกันสำหรับเวอร์ชันต่างๆ
 
-- **Usage**:
+- **การใช้งาน**:
 
   ```js
   var version = Number(Vue.version.split('.')[0])
@@ -414,45 +414,45 @@ type: api
   } else if (version === 1) {
     // Vue v1.x.x
   } else {
-    // Unsupported versions of Vue
+    // Vue ที่ไม่ได้รับการสนับสนุน
   }
   ```
 
-## Options / Data
+## ตัวเลือก / ข้อมูล
 
-### data
+### ข้อมูล
 
-- **Type:** `Object | Function`
+- **ประเภท:** `Object | Function`
 
-- **Restriction:** Only accepts `Function` when used in a component definition.
+- **ข้อจำกัด:** เฉพาะ `Function` เมื่อใช้ในนิยามคอมโพเนนต์
 
-- **Details:**
+- **รายละเอียด:**
 
-  The data object for the Vue instance. Vue will recursively convert its properties into getter/setters to make it "reactive". **The object must be plain**: native objects such as browser API objects and prototype properties are ignored. A rule of thumb is that data should just be data - it is not recommended to observe objects with their own stateful behavior.
+  อ็อบเจ็กต์ข้อมูลสำหรับอินสแตนซ์ Vue Vue จะแปลงค่าคุณสมบัติให้เป็น recursively ใน getter / setters เพื่อให้เป็น "reactive" **Object ต้องเป็นแบบธรรมดา**: ออบเจ็กต์ดั้งเดิมเช่นออบเจ็กต์ API ของเบราว์เซอร์และคุณสมบัติต้นแบบจะถูกละเลย กฎของหัวแม่มือคือข้อมูลควรจะเป็นข้อมูล - ไม่ควรสังเกตวัตถุที่มีพฤติกรรมเป็นของตัวเอง.
 
-  Once observed, you can no longer add reactive properties to the root data object. It is therefore recommended to declare all root-level reactive properties upfront, before creating the instance.
+  เมื่อสังเกตแล้วคุณจะไม่สามารถเพิ่มคุณสมบัติปฏิกิริยาต่อกับอ็อบเจ็กต์ข้อมูลรากอีกต่อไป ขอแนะนำให้ประกาศล่วงหน้าคุณสมบัติระดับการตอบสนองระดับรากทั้งหมดก่อนที่จะสร้างอินสแตนซ์
 
-  After the instance is created, the original data object can be accessed as `vm.$data`. The Vue instance also proxies all the properties found on the data object, so `vm.a` will be equivalent to `vm.$data.a`.
+  หลังจากสร้างอินสแตนซ์แล้วคุณสามารถเข้าถึงอ็อบเจ็กต์ข้อมูลเดิมได้ เช่น `vm.$data`. อินสแตนซ์ Vue ยังพร็อกซีคุณสมบัติทั้งหมดที่พบในอ็อบเจ็กต์ข้อมูลเช่นกัน `vm.a` จะเท่ากับ `vm.$data.a`.
 
-  Properties that start with `_` or `$` will **not** be proxied on the Vue instance because they may conflict with Vue's internal properties and API methods. You will have to access them as `vm.$data._property`.
+  คุณสมบัติที่ขึ้นต้นด้วย `_` หรือ `$` จะ **ไม่** ถูก proxied ในตัวอย่าง Vue เนื่องจากอาจขัดแย้งกับคุณสมบัติภายในของ Vue และวิธี API คุณจะต้องเข้าถึงพวกเขาเป็น `vm.$data._property`.
 
-  When defining a **component**, `data` must be declared as a function that returns the initial data object, because there will be many instances created using the same definition. If we use a plain object for `data`, that same object will be **shared by reference** across all instances created! By providing a `data` function, every time a new instance is created we can call it to return a fresh copy of the initial data.
+  เมื่อกำหนดคอมโพเนนต์ **component**, `data` ต้องประกาศเป็นฟังก์ชันที่ส่งคืนออบเจ็กต์ข้อมูลเริ่มต้นเนื่องจากจะมีหลายอินสแตนซ์ที่สร้างโดยใช้คำจำกัดความเดียวกัน ถ้าเราใช้วัตถุธรรมดาสำหรับ `data`, วัตถุเดียวกันนั้นจะเป็น **shared by reference** ข้ามทุกกรณีที่สร้างขึ้น โดยการให้ฟังก์ชั่น `data` , ทุกครั้งที่สร้างอินสแตซ์ใหม่ เราสามารถเรียกใช้ได้ เพื่อส่งคืนข้อมูลเริ่มต้น
 
-  If required, a deep clone of the original object can be obtained by passing `vm.$data` through `JSON.parse(JSON.stringify(...))`.
+  หากจำเป็นต้องใช้โคลนลึกของวัตถุต้นฉบับได้ โดยการ passing `vm.$data` ผ่าน `JSON.parse(JSON.stringify(...))`.
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var data = { a: 1 }
 
-  // direct instance creation
+  // การสร้างอินสแตนซ์โดยตรง
   var vm = new Vue({
     data: data
   })
   vm.a // => 1
   vm.$data === data // => true
 
-  // must use function when in Vue.extend()
+  // ต้องใช้ฟังก์ชันเมื่ออยู่ใน Vue.extend()
   var Component = Vue.extend({
     data: function () {
       return { a: 1 }
@@ -460,36 +460,36 @@ type: api
   })
   ```
 
-  Note that if you use an arrow function with the `data` property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  ถ้าคุณใช้ฟังก์ชัน arrow กับคุณสมบัติ `data` , `this` จะไม่เป็นอินสแตนซ์ของคอมโพเนนต์ แต่คุณยังคงสามารถเข้าถึงอินสแตนซ์เป็นอาร์กิวเมนต์แรกของฟังก์ชัน:
 
   ```js
   data: vm => ({ a: vm.myProp })
   ```
 
-- **See also:** [Reactivity in Depth](../guide/reactivity.html)
+- **ดูเพิ่มเติม:** [Reactivity in Depth](../guide/reactivity.html)
 
-### props
+### ส่งผ่าน
 
-- **Type:** `Array<string> | Object`
+- **ประเภท:** `Array<string> | Object`
 
-- **Details:**
+- **รายละเอียด:**
 
-  A list/hash of attributes that are exposed to accept data from the parent component. It has an Array-based simple syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.
+  รายการ / แฮชของแอ็ตทริบิวต์ที่รับข้อมูลจากคอมโพเนนต์หลัก มีไวยากรณ์ที่ใช้ Array และไวยากรณ์ Object-based ซึ่งจะช่วยให้สามารถกำหนดค่าขั้นสูงเช่นการตรวจสอบชนิดการตรวจสอบความถูกต้องและค่าดีฟอลต์
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
-  // simple syntax
+  // ไวยากรณ์ง่ายๆ
   Vue.component('props-demo-simple', {
     props: ['size', 'myMessage']
   })
 
-  // object syntax with validation
+  // รูปแบบวัตถุที่มีการตรวจสอบ
   Vue.component('props-demo-advanced', {
     props: {
-      // type check
+      // ตรวจสอบ
       height: Number,
-      // type check plus other validations
+      // ตรวจสอบประเภท 
       age: {
         type: Number,
         default: 0,
@@ -502,19 +502,19 @@ type: api
   })
   ```
 
-- **See also:** [Props](../guide/components.html#Props)
+- **ดูเพิ่มเติม:** [Props](../guide/components.html#Props)
 
 ### propsData
 
-- **Type:** `{ [key: string]: any }`
+- **ประเภท:** `{ [key: string]: any }`
 
-- **Restriction:** only respected in instance creation via `new`.
+- **ข้อจำกัด:** การใช้งานเฉพาะในการสร้างอินสแตนซ์ผ่าน `new`.
 
-- **Details:**
+- **รายละเอียด:**
 
-  Pass props to an instance during its creation. This is primarily intended to make unit testing easier.
+  ส่งพร็อพไปยังอินสแตนซ์ระหว่างการสร้าง นี้มีวัตถุประสงค์หลักเพื่อให้การทดสอบหน่วยง่ายขึ้น
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var Comp = Vue.extend({
@@ -529,15 +529,15 @@ type: api
   })
   ```
 
-### computed
+### คำนวณ
 
-- **Type:** `{ [key: string]: Function | { get: Function, set: Function } }`
+- **ประเภท:** `{ [key: string]: Function | { get: Function, set: Function } }`
 
-- **Details:**
+- **รายละเอียด:**
 
-  Computed properties to be mixed into the Vue instance. All getters and setters have their `this` context automatically bound to the Vue instance.
+  คุณสมบัติเชิงคำนวณที่จะผสมลงในตัวอย่าง Vue getters ทั้งหมดและ setters มีของพวกเขา `this` บริบทเชื่อมโยงกับอินสแตนซ์ Vue โดยอัตโนมัติ
 
-  Note that if you use an arrow function with a computed property, `this` won't be the component's instance, but you can still access the instance as the function's first argument:
+  ถ้าคุณใช้ฟังก์ชัน arrow กับคุณสมบัติที่คำนวณ `this` จะไม่เป็นอินสแตนซ์ของคอมโพเนนต์ แต่คุณยังคงสามารถเข้าถึงอินสแตนซ์นี้เป็นอาร์กิวเมนต์แรกของฟังก์ชัน:
 
   ```js
   computed: {
@@ -545,19 +545,19 @@ type: api
   }
   ```
 
-  Computed properties are cached, and only re-computed on reactive dependency changes. Note that if a certain dependency is out of the instance's scope (i.e. not reactive), the computed property will __not__ be updated.
+  คุณสมบัติเชิงคำนวณจะถูกแคชและคำนวณใหม่เฉพาะเมื่อมีการเปลี่ยนแปลงการอ้างอิงขึ้น โปรดทราบว่าถ้าพึ่งพาอยู่นอกขอบเขตของอินสแตนซ์ (เช่น not reactive), คุณสมบัติที่คำนวณจะไม่ได้รับการปรับปรุง
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ```js
   var vm = new Vue({
     data: { a: 1 },
     computed: {
-      // get only
+      // ได้รับอย่างเดียว
       aDouble: function () {
         return this.a * 2
       },
-      // both get and set
+      // ทั้งสองได้รับและตั้งค่า
       aPlus: {
         get: function () {
           return this.a + 1
@@ -574,19 +574,19 @@ type: api
   vm.aDouble // => 4
   ```
 
-- **See also:** [Computed Properties](../guide/computed.html)
+- **ดูเพิ่มเติม:** [Computed Properties](../guide/computed.html)
 
-### methods
+### เมธอด
 
-- **Type:** `{ [key: string]: Function }`
+- **ประเภท:** `{ [key: string]: Function }`
 
-- **Details:**
+- **รายละเอียด:**
 
-  Methods to be mixed into the Vue instance. You can access these methods directly on the VM instance, or use them in directive expressions. All methods will have their `this` context automatically bound to the Vue instance.
+  วิธีการผสมลงในตัวอย่าง Vue คุณสามารถเข้าถึงวิธีการเหล่านี้ได้โดยตรงจากอินสแตนซ์ของ VM หรือใช้ในการแสดงคำสั่ง วิธีการทั้งหมดจะมี `this` บริบทเชื่อมโยงกับอินสแตนซ์ Vue โดยอัตโนมัติ
 
-  <p class="tip">Note that __you should not use an arrow function to define a method__ (e.g. `plus: () => this.a++`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.a` will be undefined.</p>
+  <p class="tip">โปรดทราบว่า คุณไม่ควรใช้ฟังก์ชัน arrow เพื่อกำหนดเมธอด (เช่น `plus: () => this.a++`). เหตุผลก็คือฟังก์ชันลูกศรผูกบริบทหลัก ดังนั้น `this` จะไม่เป็นตัวอย่าง Vue ตามที่คุณคาดหวังและ `this.a` จะไม่ได้กำหนดไว้</p>
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ```js
   var vm = new Vue({
@@ -601,17 +601,17 @@ type: api
   vm.a // 2
   ```
 
-- **See also:** [Event Handling](../guide/events.html)
+- **ดูเพิ่มเติม:** [Event Handling](../guide/events.html)
 
 ### watch
 
-- **Type:** `{ [key: string]: string | Function | Object | Array}`
+- **ประเภท:** `{ [key: string]: string | Function | Object | Array}`
 
-- **Details:**
+- **รายละเอียด:**
 
-  An object where keys are expressions to watch and values are the corresponding callbacks. The value can also be a string of a method name, or an Object that contains additional options. The Vue instance will call `$watch()` for each entry in the object at instantiation.
+  วัตถุที่คีย์เป็นนิพจน์เพื่อดูและค่าคือการเรียกกลับที่ตรงกัน ค่านี้อาจเป็นสตริงชื่อเมธอดหรือ Object ที่มีตัวเลือกเพิ่มเติม อินสแตนซ์ Vue จะเรียก `$watch()` ใช้งานแต่ละรายการในอ็อบเจ็กต์ที่ instantiation
 
-- **Example:**
+- **ตัวอย่าง:**
 
   ``` js
   var vm = new Vue({
@@ -630,14 +630,14 @@ type: api
       a: function (val, oldVal) {
         console.log('new: %s, old: %s', val, oldVal)
       },
-      // string method name
+      // ชื่อเมธอดสตริง
       b: 'someMethod',
-      // deep watcher
+      // เฝ้าระวัง
       c: {
         handler: function (val, oldVal) { /* ... */ },
         deep: true
       },
-      // the callback will be called immediately after the start of the observation
+      // callback จะเรียกทันทีหลังจากเริ่มสังเกต
       d: {
         handler: function (val, oldVal) { /* ... */ },
         immediate: true
@@ -646,16 +646,16 @@ type: api
         function handle1 (val, oldVal) { /* ... */ },
         function handle2 (val, oldVal) { /* ... */ }
       ],
-      // watch vm.e.f's value: {g: 5}
+      // ดูค่าของ vm.e.f's : {g: 5}
       'e.f': function (val, oldVal) { /* ... */ }
     }
   })
   vm.a = 2 // => new: 2, old: 1
   ```
 
-  <p class="tip">Note that __you should not use an arrow function to define a watcher__ (e.g. `searchQuery: newValue => this.updateAutocomplete(newValue)`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.updateAutocomplete` will be undefined.</p>
+  <p class="tip">คุณไม่ควรใช้ฟังก์ชัน arrow เพื่อกำหนดตัวเฝ้า (เช่น `searchQuery: newValue => this.updateAutocomplete(newValue)`). สาเหตุที่ฟังก์ชัน arrow ผูกบริบทหลัก ดังนั้น `this` จะไม่เป็นตัวอย่าง Vue ตามที่คุณคาดหวังและ `this.updateAutocomplete` จะไม่ได้กำหนดไว้</p>
 
-- **See also:** [Instance Methods / Data - vm.$watch](#vm-watch)
+- **ดูเพิ่มเติม:** [Instance Methods / Data - vm.$watch](#vm-watch)
 
 ## Options / DOM
 

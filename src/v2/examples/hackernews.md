@@ -1,10 +1,10 @@
 ---
-title: HackerNews Clone
+title: การโคลน HackerNews 
 type: examples
 order: 12
 ---
 
-> This is a HackerNews clone built upon HN's official Firebase API, Vue 2.0 + Vue Router + Vuex, with server-side rendering.
+> นี่เป็นโคลนโปรเจคของ HackerNews ที่สร้างขึ้นจาก API Firebase อย่างเป็นทางการของ HN , Vue 2.0 + Vue Router + Vuex, โดยจะการแสดงผลในฝั่งเซิร์ฟเวอร์
 
 {% raw %}
 <div style="max-width: 600px;">
@@ -14,22 +14,22 @@ order: 12
 </div>
 {% endraw %}
 
-> [Live Demo](https://vue-hn.now.sh/)
-> Note: the demo may need some spin up time if nobody has accessed it for a certain period.
+> [ตัวอย่าง](https://vue-hn.now.sh/)
+> หมายเหตุ: การสาธิตอาจต้องรอบางเวลา ถ้าไม่มีใครมีเข้ามาเป็นระยะ
 >
-> [[Source](https://github.com/vuejs/vue-hackernews-2.0)]
+> [[ข้อมูล](https://github.com/vuejs/vue-hackernews-2.0)]
 
-## Features
+## คุณสมบัติ
 
-- Server Side Rendering
-  - Vue + Vue Router + Vuex working together
-  - Server-side data pre-fetching
-  - Client-side state & DOM hydration
-- Single-file Vue Components
-  - Hot-reload in development
-  - CSS extraction for production
-- Real-time List Updates with FLIP Animation
+- ฝั่งเซิร์ฟเวอร์แสดงผล
+  - Vue + Vue Router + Vuex ที่ทำงานร่วมกัน
+  - ฝั่งเซิร์ฟเวอร์ข้อมูลดึงข้อมูลล่วงหน้า
+  - ด้านลูกค้าสถานะ ดอม ไฮเดรชั่น
+- ส่วนคอมโพเนนต์แบบไฟล์เดียว
+  - จะสามารถ Hot-reload ได้ ในการพัฒนา
+  - แยกส่วนของ CSS ในการสร้าง
+- อัพเดทแบบเรียลไทม์ แบบ FLIP อนิเมชั่น
 
-## Architecture Overview
+## ภาพโดยรวมของสถาปัตยกรรม
 
 <img width="973" alt="Hackernew clone architecture overview" src="../../images/hn-architecture.png">
