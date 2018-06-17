@@ -1,24 +1,24 @@
 ---
-title: The Vue Instance
+title: อินสแตนส์ Vue
 type: guide
 order: 3
 ---
 
-## Creating a Vue Instance
+## สร้างอินสแตนส์ Vue
 
-Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
+ทุกๆ แอพพลิเคชัน Vue จะเริ่มต้นโดยสร้าง **อินสแตนส์ของ Vuew** ใหม่ด้วยฟังก์ชัน `Vue`:
 
 ```js
 var vm = new Vue({
-  // options
+  // ตัวเลือก
 })
 ```
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
+แม้ว่าไม่เกี่ยวข้องกับ [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel) แต่การออกแบบของ Vue ก็ได้แรงบันดาลใจจากแพทเทิร์นนี้ ดังกติการ่วมกัน เราจะใช้ตัวแปร `vm` (ย่อมาจาก ViewMode) เพื่ออ้างอิงถึงอินสแตนส์ของ Vue
 
-When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/#Options-Data).
+เมื่อสร้างอินสแตนส์ของ Vue คุณส่งผ่าน **ตัวเลือกวัตถุ (options object)** ส่วนใหญ่ของคำแนะนำนี้จะอธิบายว่าคุณสามารถใช้งานตัวเลือกเหล่านี้อย่างไร เพื่อสร้างพฤติกรรมของแอพพลิเคชันที่คุณต้องการ สำหรับการอ้างอิง คุณสามารถดูได้ที่รายการเต็มของตัวเลือกใน [รายการอ้างอิง API](../api/#Options-Data)
 
-A Vue application consists of a **root Vue instance** created with `new Vue`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
+แอพพลิเคชันของ Vue ประกอบด้วย **อินสแตนส์หลัก Vue** สร้างด้วยคำสั่ง `new Vue`, ตัวเลือกจัดอยู่ในรูปต้นไม้ที่ซ้อนกัน คอมโพแนนต์ที่นำกลับมาใช้ใหม่ ตัวอย่างเช่น แอพพลิเคชัน Todo โครงสร้างต้นไม้ของคอมโพแนนมีรูปแบบดังนี้:
 
 ```
 Root Instance
@@ -31,42 +31,42 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](components.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
+เราจะกล่าวถึงรายละเอียดของ [ระบบคอมโพแนนต์](components.html) ในภายหลัง สำหรับตอนนี้รู้เพียงว่าคอมโพแนนต์ของ Vue ทั้งหมดเป็นอินสแตน์ของ Vue และยอมรับตัวเลือกวัตถุเดียวกัน (ยกเว้นแต่บางตัวเลือกเฉพาะหลัก)
 
-## Data and Methods
+## ข้อมูลและเมธอด
 
-When a Vue instance is created, it adds all the properties found in its `data` object to Vue's **reactivity system**. When the values of those properties change, the view will "react", updating to match the new values.
+เมื่ออินสแตนส์ Vue สร้างขึ้น มันจะเพิ่มคุณสมบัติทั้งหมดที่เจอในวัตถุ `data` ไปยัง **ระบบตอบสนองทันที** ของ ​Vue เมื่อค่าของคุณสัมบัติของวัตถุเปลี่ยนแปลง การแสดงผลจะ "ตอบสนอง" ต่อการเปลี่ยนแปลงดังกล่าวและอัพเดตด้วยค่าใหม่
 
 ```js
-// Our data object
+// วัตถุข้อมูลของเรา
 var data = { a: 1 }
 
-// The object is added to a Vue instance
+// วัตถุที่เพิ่มไปยังอินสแตนส์ Vue
 var vm = new Vue({
   data: data
 })
 
-// Getting the property on the instance
-// returns the one from the original data
+// รับเอาคุณสมบัติบนอินสแตนส์
+// ส่งกลับข้อมูลจากข้อมูลต้นฉลับ
 vm.a == data.a // => true
 
-// Setting the property on the instance
-// also affects the original data
+// เปลี่ยนแปลงค่าของคุณสมบัติบนอินสแตนส์
+// โดยจะมีผลต่อข้อมูลต้นฉบับ
 vm.a = 2
 data.a // => 2
 
-// ... and vice-versa
+// ... และในทางกลับกัน
 data.a = 3
 vm.a // => 3
 ```
 
-When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
+เมื่อข้อมูลเปลี่ยนแปลง การแสดงผลจะสร้างการแสดงผลใหม่ อาจจะกล่าวได้ว่าคุณสมบัติใน `data` เป็นเพียง **การตอบสอนงทันที** ถ้าวัตถุดังกล่าวมีอยู่ตั้งแต่อินสแตนส์ถูกสร้างขึ้น นั้นหมายความว่าถ้าเราเพิ่มคุณสมบัติใหม่ แบบนี้:
 
 ```js
 vm.b = 'hi'
 ```
 
-Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
+ดังนั้นการเปลี่ยนแปลงของ `b` จะไม่มีผลกระทบทำให้การแสดงผลเปลียนแปลง ถ้ารู้ว่าต้องการเพิ่มคุณสมบัติในภายหลัง จะต้องใส่คุณสมบัติดังกล่าวไป ด้วยค่าว่างเปล่าหรือค่าเริ่มต้น เพื่อใช้ในภายหลัง ตัวอย่างเช่น:
 
 ```js
 data: {
@@ -78,7 +78,7 @@ data: {
 }
 ```
 
-The only exception to this being the use of `Object.freeze()`, which prevents existing properties from being changed, which also means the reactivity system can't _track_ changes.
+มีข้อยกเว้นเพียงใช้คำสั่ง `Object.freeze()` ซึ่งจะป้องกันคุณสมบัติที่มีอยู่ของวัตถุไม่ให้ถูกเปลี่ยนแปลง นั้นก็หมายความว่าระบบตอบสนองทันทีจะไม่ _ติดตาม_ การเปลี่ยนแปลงที่เกิดขึ้น
 
 ```js
 var obj = {
@@ -101,7 +101,7 @@ new Vue({
 </div>
 ```
 
-In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
+นอกเหนือจากคุณสมบัติของข้อมูลแล้ว อินสแตนส์ Vue ยังมีคุณสมบัติและเมธอดของอินสแตนส์ที่มีประโยชน์อีกจำนวนหนึ่ง ซึ่งจะมีคำนำหน้าเป็น `$` ที่จะแตกต่างจากคุณสมบัติที่ผู้ใช้กำหนดเอง ดังตัวอย่าง:
 
 ```js
 var data = { a: 1 }
@@ -113,19 +113,19 @@ var vm = new Vue({
 vm.$data === data // => true
 vm.$el === document.getElementById('example') // => true
 
-// $watch is an instance method
+// $watch เป็นเมธอดของอินสแตนส์
 vm.$watch('a', function (newValue, oldValue) {
-  // This callback will be called when `vm.a` changes
+  // callback นี้จะถูดเรียกเมื่อ `vm.a` เปลี่ยนแปลง
 })
 ```
 
-In the future, you can consult the [API reference](../api/#Instance-Properties) for a full list of instance properties and methods.
+ซึ่งสามารถดูรายละเอียดเพิ่มเติมสำหรับรายการเต็มของคุณสมบัติอินสแตนส์และเมธอทได้ที่ [รายการอ้างอิง API](../api/#Instance-Properties) 
 
-## Instance Lifecycle Hooks
+## ตะขอวงจรชีวิตของอินสแตนส์
 
-Each Vue instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+แต่ล่ะอินสแตนส์ Vue ผ่านชุดของขั้นตอนการเริ่มต้นเมื่ออินสแตนส์ถูกสร้างขึ้น - ตัวอย่างเช่น อินสแตนส์จำเป็นต้องตั้งค่าการเฝ้าตรวจสอบข้อมูล, รวบรวมเทมเพลต, ติดตั้งอินสแตนส์ไปที่ DOM และอัพเดต DOM เมื่อข้อมูลมีการเปลี่ยนแปลง ในระหว่างทางอินสแตนส์จะเรียกฟังก์ชันที่เรียกว่า **ตะขอวงจรชีวิต** ที่ให้โอกาสผู้ใช้งานเพิ่มโค้ดของตัวเองที่ขั้นตอนเฉพาะ
 
-For example, the [`created`](../api/#created) hook can be used to run code after an instance is created:
+ตัวอย่างเช่น, ตะขอ [`created`](../api/#created) สามารถใช้เพื่อรันโค้ดหลังจากที่อินสแตนส์ถูกสร้างขึ้น
 
 ```js
 new Vue({
@@ -140,12 +140,12 @@ new Vue({
 // => "a is: 1"
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](../api/#mounted), [`updated`](../api/#updated), and [`destroyed`](../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
+ยังมีตะขออื่นๆ ซึ่งจะเรียกที่ขั้นตอนที่แตกต่างกันของวงจรชีวิตของอินสแตนส์ ดังเช่น [`mounted`](../api/#mounted), [`updated`](../api/#updated), และ [`destroyed`](../api/#destroyed) ตะขอวงจรชีวิตทั้งหมดจะถูกเรียกเมื่อบริบท `this` ชี้ไปยังอินสแตนส์ Vue ที่ร้องขอมัน
 
-<p class="tip">Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since arrow functions are bound to the parent context, `this` will not be the Vue instance as you'd expect, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.</p>
+<p class="tip">ห้ามใช้ [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) กับคุณสมบัติตัวเลือกหรือ callback ดังเช่น `created: () => console.log(this.a)` หรือ `vm.$watch('a', newValue => this.myMethod())` เมื่อ arrow functions จะผูกไว้กับบริบทแม่ `this` ไม่ใช่อินสแตนส์ Vue ดังที่คุณคิด ส่งผลให้เกิดข้อผิดพลาดเสมอ ดังเช่น  `Uncaught TypeError: Cannot read property of undefined` หรือ `Uncaught TypeError: this.myMethod is not a function`.</p>
 
-## Lifecycle Diagram
+## แผนภาพวงจรชีวิต
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+ด้านล่างนี้เป็นแผนภาพสำหรับวงจรชีวิตของอินสแตนส์ ไม่จำเป็นต้องเข้าใจทั้งหมดทุกสิ่งทุกอย่างในตอนนี้ แต่เพียงแค่ทำความเข้าใจและลองทำดู จะเป็นการอ้างอิงที่มีประโยชน์
 
 ![The Vue Instance Lifecycle](/images/lifecycle.png)
