@@ -1,33 +1,33 @@
 ---
-title: API
+title: เอพีไอ
 type: api
 ---
 
 ## Global Config
 
-`Vue.config` is an object containing Vue's global configurations. You can modify its properties listed below before bootstrapping your application:
+`Vue.config` เป็นวัตถุที่มีการกำหนดค่าทั่วโลกของ Vue คุณสามารถแก้ไขคุณสมบัติของรายการด้านล่างก่อนที่จะบูตแอ็พพลิเคชันของคุณ:
 
 ### silent
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `false`
+- **ค่าเริ่มต้น:** `false`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.silent = true
   ```
 
-  Suppress all Vue logs and warnings.
+  ยกเลิกการบันทึกและคำเตือน Vue ทั้งหมด
 
 ### optionMergeStrategies
 
-- **Type:** `{ [key: string]: Function }`
+- **ประเภท:** `{ [key: string]: Function }`
 
-- **Default:** `{}`
+- **ค่าเริ่มต้น:** `{}`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.optionMergeStrategies._my_option = function (parent, child, vm) {
@@ -41,34 +41,34 @@ type: api
   // Profile.options._my_option = 2
   ```
 
-  Define custom merging strategies for options.
+  กำหนดกลยุทธ์การผสานที่กำหนดเองสำหรับตัวเลือก
 
-  The merge strategy receives the value of that option defined on the parent and child instances as the first and second arguments, respectively. The context Vue instance is passed as the third argument.
+  ยุบตารางนี้ขยายตารางนี้กลยุทธ์การผสานได้รับค่าของอ็อพชันที่กำหนดไว้ในอินสแตนซ์ระดับบนสุดและอันดับที่สองตามลำดับ อินสแตนซ์ Vue ของบริบทถูกส่งผ่านเป็นอาร์กิวเมนต์ที่สาม
 
-- **See also:** [Custom Option Merging Strategies](../guide/mixins.html#Custom-Option-Merge-Strategies)
+- **ดูเพิ่มเติม:** [กลยุทธ์การรวมกลยุทธ์ที่ผันผวน](../guide/mixins.html#Custom-Option-Merge-Strategies)
 
 ### devtools
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `true` (`false` in production builds)
+- **ค่าเริ่มต้น:** `true` (`false` in production builds)
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
-  // make sure to set this synchronously immediately after loading Vue
+  //ตรวจสอบให้แน่ใจว่าได้ตั้งค่านี้พร้อมกันทันทีหลังจากโหลด Vue
   Vue.config.devtools = true
   ```
 
-  Configure whether to allow [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. This option's default value is `true` in development builds and `false` in production builds. You can set it to `true` to enable inspection for production builds.
+  กำหนดค่าว่าจะอนุญาต [vue-devtools](https://github.com/vuejs/vue-devtools) inspection. ค่าเริ่มต้นของตัวเลือกนี้เป็น `true`ในการสร้างการพัฒนาและ `false` ในการสร้างการผลิต คุณสามารถกำหนดให้เป็น `true` เพื่อเปิดใช้งานการตรวจสอบสำหรับการสร้างการผลิต
 
 ### errorHandler
 
-- **Type:** `Function`
+- **ประเภท:** `Function`
 
-- **Default:** `undefined`
+- **ค่าเริ่มต้น:** `undefined`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.errorHandler = function (err, vm, info) {
@@ -84,53 +84,53 @@ type: api
 
   > In 2.4.0+ this hook also captures errors thrown inside Vue custom event handlers.
 
-  > Error tracking services [Sentry](https://sentry.io/for/vue/) and [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) provide official integrations using this option.
+  > บริการติดตามข้อผิดพลาด [Sentry](https://sentry.io/for/vue/) และ [Bugsnag](https://docs.bugsnag.com/platforms/browsers/vue/) ให้การผสานรวมอย่างเป็นทางการโดยใช้ตัวเลือกนี้
 
 ### warnHandler
 
 > New in 2.4.0+
 
-- **Type:** `Function`
+- **ประเภท:** `Function`
 
-- **Default:** `undefined`
+- **ค่าเริ่มต้น:** `undefined`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.warnHandler = function (msg, vm, trace) {
-    // `trace` is the component hierarchy trace
+    // `trace` คือการตรวจสอบลำดับชั้นคอมโพเนนต์
   }
   ```
 
-  Assign a custom handler for runtime Vue warnings. Note this only works during development and is ignored in production.
+  กำหนดตัวจัดการที่กำหนดเองสำหรับคำเตือน Vue รันไทม์ โปรดทราบว่าสิ่งนี้ใช้ได้เฉพาะในระหว่างการพัฒนาและถูกละเลยในการผลิต
 
 ### ignoredElements
 
-- **Type:** `Array<string | RegExp>`
+- **ประเภท:** `Array<string | RegExp>`
 
-- **Default:** `[]`
+- **ค่าเริ่มต้น:** `[]`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.ignoredElements = [
     'my-custom-web-component',
     'another-web-component',
-    // Use a `RegExp` to ignore all elements that start with "ion-"
+    // ใช้ "RegExp" เพื่อละเว้นองค์ประกอบทั้งหมด ที่ขึ้นต้นด้วย "ion-"
     // 2.5+ only
     /^ion-/
   ]
   ```
 
-  Make Vue ignore custom elements defined outside of Vue (e.g., using the Web Components APIs). Otherwise, it will throw a warning about an `Unknown custom element`, assuming that you forgot to register a global component or misspelled a component name.
+  ทำให้ Vue ละเว้นองค์ประกอบที่กำหนดเองที่กำหนดไว้ด้านนอกของ Vue (เช่นการใช้ Web Components APIs) มิฉะนั้นจะเป็นการเตือนเกี่ยวกับ `Unknown custom element`, สมมติว่าคุณลืมที่จะลงทะเบียนคอมโพเนนต์ส่วนกลางหรือสะกดชื่อคอมโพเนนต์
 
 ### keyCodes
 
-- **Type:** `{ [key: string]: number | Array<number> }`
+- **ประเภท:** `{ [key: string]: number | Array<number> }`
 
-- **Default:** `{}`
+- **ค่าเริ่มต้น:** `{}`
 
-- **Usage:**
+- **การใช้งาน:**
 
   ``` js
   Vue.config.keyCodes = {
@@ -148,31 +148,31 @@ type: api
   <input type="text" @keyup.media-play-pause="method">
   ```
 
-  Define custom key alias(es) for `v-on`.
+  กำหนดนามแฝงคีย์ที่กำหนดเอง (es) สำหรับ `v-on`.
 
-### performance
+### ประสิทธิภาพ
 
 > New in 2.2.0+
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `false (from 2.2.3+)`
+- **ค่าเริ่มต้น:** `false (from 2.2.3+)`
 
-- **Usage**:
+- **การใช้งาน**:
 
-  Set this to `true` to enable component init, compile, render and patch performance tracing in the browser devtool performance/timeline panel. Only works in development mode and in browsers that support the [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
+  ตั้งค่านี้เป็น `true` เปิดใช้งานคอมโพเนนต์ init เรียบเรียงทำให้เดสก์ท็อปและแก้ไขการสืบค้นกลับประสิทธิภาพในแถบประสิทธิภาพ / ไทม์ไลน์ของเบราว์เซอร์ devtool ใช้งานได้เฉพาะในโหมดการพัฒนาและในเบราว์เซอร์ที่สนับสนุน API [performance.mark](https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark) API.
 
 ### productionTip
 
 > New in 2.2.0+
 
-- **Type:** `boolean`
+- **ประเภท:** `boolean`
 
-- **Default:** `true`
+- **ค่าเริ่มต้น:** `true`
 
-- **Usage**:
+- **การใช้งาน**:
 
-  Set this to `false` to prevent the production tip on Vue startup.
+  ตั้งค่านี้เป็น `false` เพื่อป้องกันไม่ให้เคล็ดลับการผลิตเมื่อเริ่มต้นใช้งาน Vue
 
 ## Global API
 
