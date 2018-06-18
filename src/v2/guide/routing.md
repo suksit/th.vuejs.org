@@ -1,12 +1,12 @@
 ---
-title: Routing
-type: guide
-order: 501
+หัวข้อ: Routing
+ประเภท: การแนะนำ
+ลำดับที่: 501
 ---
 
 ## Official Router
 
-For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router). For more details, see vue-router's [documentation](https://router.vuejs.org/).
+สำหรับแอ๊พพลิเคชั่นหน้าเดียวส่วนมาก จะแนะนำให้ใช้ [ไลบรารี่ vue-router](https://github.com/vuejs/vue-router) ที่ได้รับการสนับสนุนอย่างเป็นทางการ สำหรับรายละเอียดอื่นๆ ดูได้ที่ [เอกสารคู่มือ vue-router's](https://router.vuejs.org/).
 
 ## Simple Routing From Scratch
 
