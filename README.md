@@ -69,7 +69,7 @@ v2/guide/routing.html | เสร็จ | :ballot_box_with_check: |
 v2/guide/single-file-components.html
 v2/guide/ssr.html
 v2/guide/state-management.html
-v2/guide/syntax.html
+v2/guide/syntax.html | เสร็จ | :ballot_box_with_check: |
 v2/guide/transitioning-state.html
 v2/guide/transitions.html
 v2/guide/unit-testing.html
