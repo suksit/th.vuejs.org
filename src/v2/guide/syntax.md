@@ -101,48 +101,47 @@ new Vue({
 
 ## ตำสั่ง
 
-คำสั่ง (Directive) เป็นแอตทริบิวต์พิเศษด้วยคำนำหน้า `v-` ค่าของแอตทริบิวต์คำสั่งคาดว่าจะเป็น ****
-Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception for `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
+คำสั่ง (Directive) เป็นแอตทริบิวต์พิเศษด้วยคำนำหน้า `v-` ค่าของแอตทริบิวต์คำสั่งคาดว่าจะเป็น **JavaScript พิพจน์เดี่ยว** (ด้วยนิพจน์สำหรับ `v-for`, คำสั่งเป็นแอตทริบิวต์พิเศษที่จะกล่าวถึงในภายหลัง) การทำงานของคำสั่งจะตอบสนองทันทีไปยัง DOM เมื่อค่าของนิพจน์เปลี่ยนแปลง ลองทบทวนตัวอย่างที่เราเห็นในบทนำ:
 
 ``` html
 <p v-if="seen">Now you see me</p>
 ```
 
-Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+จากโค้ดนี้ คำสั่ง `v-if` จะลบ/แทรก องค์ประกอบ `<p>` ขึ้นอยู่กับค่าความจริงของนิพจน์ `seen`
 
-### Arguments
+### อาร์กิวเมนต์
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+บางคำสั่งอาจจะมี "อาร์กิวเมนต์" เขียนด้วย โคลอน หลังจากชื่อของคำสั่ง ตัวอย่างเช่น คำสั่ง `v-bind` ใช้สำหรับอัพเดตแอตทริบิวต์ HTML ทันทีทันใด:
 
 ``` html
 <a v-bind:href="url"> ... </a>
 ```
 
-Here `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`.
+จากโค้ดนี้ `href` เป็นอาร์กิวเมนต์ ซึ่งบอกคำสั่ง `v-bind` เพื่อผูกแอตทริบิวต์ `href` ขององค์ประกอบ ด้วยค่าของนิพจน์ `url`
 
-Another example is the `v-on` directive, which listens to DOM events:
+อีกตัวอย่างคือคำสั่ง `v-on` ซึ่งจะคอยฟังเหตุการณ์ของ DOM:
 
 ``` html
 <a v-on:click="doSomething"> ... </a>
 ```
 
-Here the argument is the event name to listen to. We will talk about event handling in more detail too.
+จากโค้ดนี้ อาร์กิวเมนต์คือชื่อของเหตุการณ์ที่คอยฟัง เราจะอธิบายเกี่ยวกับรายละเอียดการจัดการเหตุการณ์ด้วย
 
-### Modifiers
+### โมดิไฟเออร์
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+โมดิไฟเออร์เป็นคำตามหลังพิเศษเขียนด้วย จุด ซึ่งบ่งบอกว่าคำสั่งควรจะผูกกับบางสิ่ง ตัวอย่างเช่น โมดิไฟเออร์ `.prevent` จะบอกคำสั่ง `v-on` ให้เรียก `evnet.preventDefault()` ในเหตุการณ์ที่ถูกกระตุ้น:
 
 ``` html
 <form v-on:submit.prevent="onSubmit"> ... </form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](events.html#Event-Modifiers) and [for `v-model`](forms.html#Modifiers), when we explore those features.
+คุณจะเห็นตัวอย่างอื่น ๆ ของโมดิไฟเออร์ในภายหลัง [สำหรับ `v-on`](events.html#Event-Modifiers) และ [สำหรับ `v-model`](forms.html#Modifiers) เมื่อเราสำรวจคุณลักษณะเหล่านี้
 
-## Shorthands
+## ชวเลข (shorthand)
 
-The `v-` prefix serves as a visual cue for identifying Vue-specific attributes in your templates. This is useful when you are using Vue.js to apply dynamic behavior to some existing markup, but can feel verbose for some frequently used directives. At the same time, the need for the `v-` prefix becomes less important when you are building a [SPA](https://en.wikipedia.org/wiki/Single-page_application) where Vue.js manages every template. Therefore, Vue.js provides special shorthands for two of the most often used directives, `v-bind` and `v-on`:
+คำนำหน้า `v-` ทำหน้าที่เป็นอักษรที่บ่งบอกสำหรับระบุแอตทริบิวต์เฉพาะของ Vue ในเทมเพลตของคุณ มีประโยชน์เมื่อคุณใช้ Vue.js เพื่อใช้พฤติกรรมแบบไดนามิกกับมาร์กอัฟทีมีอยู่บางส่วน แต่สามารถรู้สึกอย่างระเอียดสำหรับบางคำสั่งที่ใช้บ่อย ในเวลาเดียวกัน ต้องการของคำนำหน้า `v-` มีความสำคัญน้อยลงเมื่อคุณสร้าง [SPA](https://en.wikipedia.org/wiki/Single-page_application) โดย Vue.js จัดการเทมเพลตทั้งหมด ดังนั้น Vue.js จัดเตรียมชวเลขพิเศษสำหรับสองคำที่ใช้บ่อยคือ `v-bind` และ `v-on`:
 
-### `v-bind` Shorthand
+### ชวเลข `v-bind`
 
 ``` html
 <!-- full syntax -->
@@ -152,7 +151,7 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 <a :href="url"> ... </a>
 ```
 
-### `v-on` Shorthand
+### ชวเลข `v-on`
 
 ``` html
 <!-- full syntax -->
@@ -162,4 +161,4 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 <a @click="doSomething"> ... </a>
 ```
 
-They may look a bit different from normal HTML, but `:` and `@` are valid chars for attribute names and all Vue.js supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+โค้ดด้านบน อาจจะดูแตกต่างจาก HTML ปรกติ แต่ `:` และ `@` เป็นอักษรที่ถูกต้องสำหรับซื่อแอตทริบิวต์และเบราว์เซอร์ที่สนับสนุน Vue.js ทั้งหมดสามารถแยกวิเคราะห์ได้อย่างถูกต้อง นอกจากนี้ยังไม่ปรากฏในมาร์กอัปที่แสดงผลสุดท้าย ไวยกรณ์ชวเลขเป็นตัวเลือก แต่คุณอาจจะมีคุณค่าเมื่อคุณเรียนรู้เพิ่มเติมเกี่ยวกับการใช้งานในภายหลัง
