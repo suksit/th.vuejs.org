@@ -65,7 +65,7 @@ v2/guide/mixins.html
 v2/guide/plugins.html
 v2/guide/reactivity.html
 v2/guide/render-function.html
-v2/guide/routing.html
+v2/guide/routing.html | กำลังแปล | 
 v2/guide/single-file-components.html
 v2/guide/ssr.html
 v2/guide/state-management.html
