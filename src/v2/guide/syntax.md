@@ -1,36 +1,36 @@
 ---
-title: Template Syntax
+title:  ไวยกรณ์เทมเพลต
 type: guide
 order: 4
 ---
 
-Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance's data. All Vue.js templates are valid HTML that can be parsed by spec-compliant browsers and HTML parsers.
+Vue.js ใช้ไวยกรณ์เทมเพลตโดยใช้พื้นฐาน HTML ที่ทำให้คุณประกาศผูกการแสดงผล DOM กับอินสแตนส์ Vue ที่อยู่ในเบื้องหลัง เทมเพลต Vue.js ทั้งหมดใช้ได้กับ HTML ที่สามารถวิเคราะห์คำด้วยสเปกที่สอดคล้องของเว็บเบราเซอร์และการวิเคราะห์คำของ HTML
 
-Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
+ในเบื้องหลัง Vue จะคอมไฟล์เทมเพลตไปเป็นฟังก์ชันแสดงผล DOM เสมือนจริง รวบรวมกับระบบตอบสอนงทันที Vue สามารถชาญฉลาดในการหาคอมโพแนนส์ที่น้อยที่สุดเพื่อแสดงผลใหม่และใช้งานการจัดการ DOM จำนวนน้อยที่สุดเมื่อสถานะของแอพพลิเคชันเปลี่ยนแปลง
 
-If you are familiar with Virtual DOM concepts and prefer the raw power of JavaScript, you can also [directly write render functions](render-function.html) instead of templates, with optional JSX support.
+ถ้าคุณคุ้นเคยกับแนวคิดของ DOM เสมือนจริงและต้องการพลังดิบของ JavaScript, คุณสามารถดูเพิ่มเติมได้ที่ [เขียนฟังก์ชันแสดงผลโดยตรง](render-function.html) แทนที่เทมเพลต ด้วยตัวเลือกสนับสนุน JSX
 
-## Interpolations
+## การแก้ไข
 
-### Text
+### ข้อความ
 
-The most basic form of data binding is text interpolation using the "Mustache" syntax (double curly braces):
+รูปแบบพื้นฐานที่สุดของผูกข้อมูลคือการแก้ไขข้อความใช้ไวยกรณ์ "หนวด" (วงเล็บปีกาคู่)
 
 ``` html
 <span>Message: {{ msg }}</span>
 ```
 
-The mustache tag will be replaced with the value of the `msg` property on the corresponding data object. It will also be updated whenever the data object's `msg` property changes.
+แท็กหนวดจะถูกแทนที่ด้วยค่าของคุณสมบัติ `msg` บนวัตถุข้อมูลที่เกี่ยวข้อง นอกจากนี้ยังมีการอัปเดตเมื่อมีการเปลี่ยนแปลงคุณสมบัติ `msg` ของวัตถุ
 
-You can also perform one-time interpolations that do not update on data change by using the [v-once directive](../api/#v-once), but keep in mind this will also affect any other bindings on the same node:
+นอกจากนี้คุณสามารถดำเนินการแก้ไขข้อมูลเพียงครั้งเดียวที่ไม่ได้อัปเดตเกี่ยวกับการเปลี่ยนแปลงข้อมูลโดยใช้คำสั่ง [v-once](../api/#v-once) แต่โปรดจำไว้ว่านี่จะส่งผลต่อการผูกอื่นในโหลดเดียวกัน:
 
 ``` html
 <span v-once>This will never change: {{ msg }}</span>
 ```
 
-### Raw HTML
+### HTML ดิบ
 
-The double mustaches interprets the data as plain text, not HTML. In order to output real HTML, you will need to use the `v-html` directive:
+หนวดคู่ตีความข้อมูลเป็นข้อความล้วนที่ไม่ใช้ HTML เพื่อที่จะสร้าง HTML จริง คุณจะต้องใช้คำสั่ง `v-html`
 
 ``` html
 <p>Using mustaches: {{ rawHtml }}</p>
@@ -54,29 +54,29 @@ new Vue({
 </script>
 {% endraw %}
 
-The contents of the `span` will be replaced with the value of the `rawHtml` property, interpreted as plain HTML - data bindings are ignored. Note that you cannot use `v-html` to compose template partials, because Vue is not a string-based templating engine. Instead, components are preferred as the fundamental unit for UI reuse and composition.
+เนื้อหาของ `span` จะถูกแทนที่ด้วยค่าของคุณสมบัติ `rawHtml` ซึ่งแปลว่า HTML ธรรมดา -  การผูกข้อมูลจะถูกละเว้น โปรดทราบว่าคุณไม่สามารถใช้ `v-html` ในการเขียนแม่แบบเทมเพลตบางส่วนได้ เพราะว่า Vue ไม่ใช้เครืองมือเทมเพลตแบบสติง แทนที่จะเป็นคอมโพแนนต์ที่เหมาะสำหรับการใช้ซ้ำและองค์ประกอบของ UI
 
-<p class="tip">Dynamically rendering arbitrary HTML on your website can be very dangerous because it can easily lead to [XSS vulnerabilities](https://en.wikipedia.org/wiki/Cross-site_scripting). Only use HTML interpolation on trusted content and **never** on user-provided content.</p>
+<p class="tip">การแสดงผลโดยทันทีแบบพลวัตบนเว็บไซต์ของคุณอาจจะเป็นอันตรายได้เนื่องจากอาจทำให้เกิด [ช่องโหว่ XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) ใช้เฉพาะการแก้ไข HTML บนเนื้อหาที่เชื่อถือได้และ **ไม่ควรใช้** เนื้อหาที่ผู้ใช้ระบุ</p>
 
-### Attributes
+### แอตทริบิวต์
 
-Mustaches cannot be used inside HTML attributes. Instead, use a [v-bind directive](../api/#v-bind):
+ไม่สามารถใช้หนวดในแอตทริบิวต์ของ HTML ได้ ใช้คำสั่ง [v-bind](../api/#v-bind):
 
 ``` html
 <div v-bind:id="dynamicId"></div>
 ```
 
-In the case of boolean attributes, where their mere existence implies `true`, `v-bind` works a little differently. In this example: 
+ในกรณีของคุณลักษณะบูลีนที่ค่าของมันจะเป็น `true`, `v-bind` ทำงานแตกต่างกันเล็กน้อย ในตัวอย่างนี้:
 
 ``` html
 <button v-bind:disabled="isButtonDisabled">Button</button>
 ```
 
-If `isButtonDisabled` has the value of `null`, `undefined`, or `false`, the `disabled` attribute will not even be included in the rendered `<button>` element.
+ถ้า `isButtonDisabled`มีค่าเป็น `null`, `undefined` หรือ `false` ค่าแอตทริบิวต์ `disabled` จะไม่ถูกรวมไว้ในการแสดงผลส่วน `<button>`
 
-### Using JavaScript Expressions
+### ใช้นิพจน์ JavaScript
 
-So far we've only been binding to simple property keys in our templates. But Vue.js actually supports the full power of JavaScript expressions inside all data bindings:
+จนถึงขณะนี้เราเพียงผูกคีย์ของคุณสมบัติอย่างง่ายดายในเทมเพลต แต่ Vue.js รองรับนิพจน์ JavaScript เต็มรูปแบบภายใจการผูกข้อมูลทั้งหมด:
 
 ``` html
 {{ number + 1 }}
@@ -88,7 +88,7 @@ So far we've only been binding to simple property keys in our templates. But Vue
 <div v-bind:id="'list-' + id"></div>
 ```
 
-These expressions will be evaluated as JavaScript in the data scope of the owner Vue instance. One restriction is that each binding can only contain **one single expression**, so the following will **NOT** work:
+นิพจน์เหลานี้จะประเมินเป็น JavaScript ในขอบเขตของข้อมูลของอินสแตนส์ Vue หนึ่งในข้อจำกัดคือการผูกแต่ละครั้งสามารถมีได้เพียง **นิพจย์เดี่ยว** ดังนั้นโค้ดด้านล่างนี้จะ **ไม่** ทำงาน:
 
 ``` html
 <!-- this is a statement, not an expression: -->
@@ -97,52 +97,51 @@ These expressions will be evaluated as JavaScript in the data scope of the owner
 <!-- flow control won't work either, use ternary expressions -->
 {{ if (ok) { return message } }}
 ```
+<p class="tip">นิพจน์เทมเพลตเป็นแซนบล็อกและมีเพียงเข้าถึง whitelist ของโกลบอล เช่น `Math` และ `Date` คุณไม่ควรพยายามเข้าถึงโกลบอลที่กำหนดโดยผู้ใช้ในนิพจน์เทมเพลต</p>
 
-<p class="tip">Template expressions are sandboxed and only have access to a whitelist of globals such as `Math` and `Date`. You should not attempt to access user defined globals in template expressions.</p>
+## ตำสั่ง
 
-## Directives
-
-Directives are special attributes with the `v-` prefix. Directive attribute values are expected to be **a single JavaScript expression** (with the exception for `v-for`, which will be discussed later). A directive's job is to reactively apply side effects to the DOM when the value of its expression changes. Let's review the example we saw in the introduction:
+คำสั่ง (Directive) เป็นแอตทริบิวต์พิเศษด้วยคำนำหน้า `v-` ค่าของแอตทริบิวต์คำสั่งคาดว่าจะเป็น **JavaScript พิพจน์เดี่ยว** (ด้วยนิพจน์สำหรับ `v-for`, คำสั่งเป็นแอตทริบิวต์พิเศษที่จะกล่าวถึงในภายหลัง) การทำงานของคำสั่งจะตอบสนองทันทีไปยัง DOM เมื่อค่าของนิพจน์เปลี่ยนแปลง ลองทบทวนตัวอย่างที่เราเห็นในบทนำ:
 
 ``` html
 <p v-if="seen">Now you see me</p>
 ```
 
-Here, the `v-if` directive would remove/insert the `<p>` element based on the truthiness of the value of the expression `seen`.
+จากโค้ดนี้ คำสั่ง `v-if` จะลบ/แทรก องค์ประกอบ `<p>` ขึ้นอยู่กับค่าความจริงของนิพจน์ `seen`
 
-### Arguments
+### อาร์กิวเมนต์
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+บางคำสั่งอาจจะมี "อาร์กิวเมนต์" เขียนด้วย โคลอน หลังจากชื่อของคำสั่ง ตัวอย่างเช่น คำสั่ง `v-bind` ใช้สำหรับอัพเดตแอตทริบิวต์ HTML ทันทีทันใด:
 
 ``` html
 <a v-bind:href="url"> ... </a>
 ```
 
-Here `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`.
+จากโค้ดนี้ `href` เป็นอาร์กิวเมนต์ ซึ่งบอกคำสั่ง `v-bind` เพื่อผูกแอตทริบิวต์ `href` ขององค์ประกอบ ด้วยค่าของนิพจน์ `url`
 
-Another example is the `v-on` directive, which listens to DOM events:
+อีกตัวอย่างคือคำสั่ง `v-on` ซึ่งจะคอยฟังเหตุการณ์ของ DOM:
 
 ``` html
 <a v-on:click="doSomething"> ... </a>
 ```
 
-Here the argument is the event name to listen to. We will talk about event handling in more detail too.
+จากโค้ดนี้ อาร์กิวเมนต์คือชื่อของเหตุการณ์ที่คอยฟัง เราจะอธิบายเกี่ยวกับรายละเอียดการจัดการเหตุการณ์ด้วย
 
-### Modifiers
+### โมดิไฟเออร์
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+โมดิไฟเออร์เป็นคำตามหลังพิเศษเขียนด้วย จุด ซึ่งบ่งบอกว่าคำสั่งควรจะผูกกับบางสิ่ง ตัวอย่างเช่น โมดิไฟเออร์ `.prevent` จะบอกคำสั่ง `v-on` ให้เรียก `evnet.preventDefault()` ในเหตุการณ์ที่ถูกกระตุ้น:
 
 ``` html
 <form v-on:submit.prevent="onSubmit"> ... </form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](events.html#Event-Modifiers) and [for `v-model`](forms.html#Modifiers), when we explore those features.
+คุณจะเห็นตัวอย่างอื่น ๆ ของโมดิไฟเออร์ในภายหลัง [สำหรับ `v-on`](events.html#Event-Modifiers) และ [สำหรับ `v-model`](forms.html#Modifiers) เมื่อเราสำรวจคุณลักษณะเหล่านี้
 
-## Shorthands
+## ชวเลข (shorthand)
 
-The `v-` prefix serves as a visual cue for identifying Vue-specific attributes in your templates. This is useful when you are using Vue.js to apply dynamic behavior to some existing markup, but can feel verbose for some frequently used directives. At the same time, the need for the `v-` prefix becomes less important when you are building a [SPA](https://en.wikipedia.org/wiki/Single-page_application) where Vue.js manages every template. Therefore, Vue.js provides special shorthands for two of the most often used directives, `v-bind` and `v-on`:
+คำนำหน้า `v-` ทำหน้าที่เป็นอักษรที่บ่งบอกสำหรับระบุแอตทริบิวต์เฉพาะของ Vue ในเทมเพลตของคุณ มีประโยชน์เมื่อคุณใช้ Vue.js เพื่อใช้พฤติกรรมแบบไดนามิกกับมาร์กอัฟทีมีอยู่บางส่วน แต่สามารถรู้สึกอย่างระเอียดสำหรับบางคำสั่งที่ใช้บ่อย ในเวลาเดียวกัน ต้องการของคำนำหน้า `v-` มีความสำคัญน้อยลงเมื่อคุณสร้าง [SPA](https://en.wikipedia.org/wiki/Single-page_application) โดย Vue.js จัดการเทมเพลตทั้งหมด ดังนั้น Vue.js จัดเตรียมชวเลขพิเศษสำหรับสองคำที่ใช้บ่อยคือ `v-bind` และ `v-on`:
 
-### `v-bind` Shorthand
+### ชวเลข `v-bind`
 
 ``` html
 <!-- full syntax -->
@@ -152,7 +151,7 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 <a :href="url"> ... </a>
 ```
 
-### `v-on` Shorthand
+### ชวเลข `v-on`
 
 ``` html
 <!-- full syntax -->
@@ -162,4 +161,4 @@ The `v-` prefix serves as a visual cue for identifying Vue-specific attributes i
 <a @click="doSomething"> ... </a>
 ```
 
-They may look a bit different from normal HTML, but `:` and `@` are valid chars for attribute names and all Vue.js supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+โค้ดด้านบน อาจจะดูแตกต่างจาก HTML ปรกติ แต่ `:` และ `@` เป็นอักษรที่ถูกต้องสำหรับซื่อแอตทริบิวต์และเบราว์เซอร์ที่สนับสนุน Vue.js ทั้งหมดสามารถแยกวิเคราะห์ได้อย่างถูกต้อง นอกจากนี้ยังไม่ปรากฏในมาร์กอัปที่แสดงผลสุดท้าย ไวยกรณ์ชวเลขเป็นตัวเลือก แต่คุณอาจจะมีคุณค่าเมื่อคุณเรียนรู้เพิ่มเติมเกี่ยวกับการใช้งานในภายหลัง
