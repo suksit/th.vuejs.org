@@ -1,19 +1,19 @@
 ---
-title: Single File Components
-type: guide
-order: 402
+หัวข้อ: Single File Components
+ประเภท: การแนะนำ
+ลำดับที่: 402
 ---
 
-## Introduction
+## เกริ่นนำ
 
-In many Vue projects, global components will be defined using `Vue.component`, followed by `new Vue({ el: '#container' })` to target a container element in the body of every page.
+ในหลายๆ โปรเจคของ Vue คอมโพเน้นท์หลักจะใช้ไฟล์ `Vue.component` และมี `new Vue({ el: '#container' })` ใช้ในการอ้างอิงค์กับองค์ประกอบ ในเนื้อหาของทุกๆหน้า
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+ในส่วนนี้เหมาะสำหรับการทำงานกับโปคเจคขนาดเล็ก จนถึงขนาดกลาง และใช้ JavaScript เพื่อเพิ่มองค์ประกอบบางอย่างเท่านั้น อย่างไรก็ตามสำหรับโปรเจคที่มีความซับซ้อน หรือเมื่อ Frontend ของคุณ ทำงานด้วย JavaScript ทั้งหมด จะเห็นข้อเสียเหล่านี้อย่างชัดเจน:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **ข้อกำหนดหลัก** ชื่อของทุกๆ คอมโพเน้นท์จะต้องไม่ซ้ำกัน
+- **เทมเพลตแบบตัวอักษร** จะไม่มีการเน้นสีสำหรับ ไวยากรณ์(Syntax) และต้องการให้มีการใช้เครื่องหมายทับ (/) สำหรับการเขียน HTML หลายบรรทัด
+- **ไม่สามารถใช้งาน CSS** หมายถึงในขณะที่ HTML และ Javascript เป็นโมดูลที่อยู่ในคอมโพเน้นท์แล้ว CSS จะถูกแสดงออกมาเฉยๆ และไม่สามารถใช้งานได้
+- **ไม่มีขั้นตอนการเขียนชัดเจน** ข้อกำหนดของ สำหรับ HTML และ JavaScript เวอร์ชั่น ES5 ทำงานค่อนข้างเหมือนกับ PugJS (formerly Jade) และ BabelJS
 
 All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
 
