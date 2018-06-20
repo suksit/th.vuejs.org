@@ -15,23 +15,23 @@
 - **ไม่สามารถใช้งาน CSS** หมายถึงในขณะที่ HTML และ Javascript เป็นโมดูลที่อยู่ในคอมโพเน้นท์แล้ว CSS จะถูกแสดงออกมาเฉยๆ และไม่สามารถใช้งานได้
 - **ไม่มีขั้นตอนการเขียนชัดเจน** ข้อกำหนดของ สำหรับ HTML และ JavaScript เวอร์ชั่น ES5 ทำงานค่อนข้างเหมือนกับ PugJS (formerly Jade) และ BabelJS
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+ทั้งหมดทั้งมวลนี้ได้ถูกแก้ไขโดย **single-file components** ด้วยไฟล์นามสกุล `.vue`  สามารถสร้างด้วยเครื่องมืออย่างเช่น Webpack หรือ Browserify
 
-Here's an example of a file we'll call `Hello.vue`:
+นี่คือไฟล์ตัวอย่างเราจะเรียกว่า `Hello.vue` (คลิกภาพเพื่อดูโค้ด):
 
-<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="Single-file component example (click for code as text)" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="ตัวอย่าง Single-file component (คลิกภาพเพื่อดูโค้ด)" style="display: block; margin: 30px auto;"></a>
 
-Now we get:
+ตอนนี้เราได้:
 
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
-- [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [Component-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
+- [การเน้นสีสำหรับ ไวยากรณ์(Syntax)](https://github.com/vuejs/awesome-vue#source-code-editing)
+- [โมดูล CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
+- [คอมโพเน้นท์กำหนดขอบเขตของ CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
 
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+ตามที่ได้สัญญาไว้ เราสามารถใช้การประมวลผลล่วงหน้า(Preprocessors) อย่างเช่น PugJS, BabelJS (กับ Javascript เวอร์ชั่น ES2015) และตกแต่งได้อย่างสะอาดตา และเพิ่มเติมคอมโพเน้นท์ได้อย่างเต็มที่
 
-<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="Single-file component example with preprocessors (click for code as text)" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="ตัวอย่าง Single-file component ทำงานกับ การประมวลผลล่วงหน้า(Preprocessors) (คลิกภาพเพื่อดูโค้ด)" style="display: block; margin: 30px auto;"></a>
 
-These specific languages are only examples. You could as easily use Bublé, TypeScript, SCSS, PostCSS - or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
+โค้ดภาษาเหล่านี้เป็นเพียงแค่ตัวอย่าง คุณสามารถใช้งานด้วยกันกับ Bublé, TypeScript, SCSS, PostCSS ได้อย่างง่ายดาย หรืออะไรก็ตามที่เป็นการประมวลผลล่วงหน้า นั้นช่วยคุณให้เกิดประโยชน์ ถ้าคุณใช้ Webpack ร่วมกับ `vue-loader` มันยังมีการสนับสนุนอย่างดีสำหรับโมดูล CSS
 
 ### What About Separation of Concerns?
 
