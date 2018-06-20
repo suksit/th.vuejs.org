@@ -33,11 +33,11 @@
 
 โค้ดภาษาเหล่านี้เป็นเพียงแค่ตัวอย่าง คุณสามารถใช้งานด้วยกันกับ Bublé, TypeScript, SCSS, PostCSS ได้อย่างง่ายดาย หรืออะไรก็ตามที่เป็นการประมวลผลล่วงหน้า นั้นช่วยคุณให้เกิดประโยชน์ ถ้าคุณใช้ Webpack ร่วมกับ `vue-loader` มันยังมีการสนับสนุนอย่างดีสำหรับโมดูล CSS
 
-### What About Separation of Concerns?
+### อะไรคือตัวบ่งบอกการแยกความสับสน?
 
-One important thing to note is that **separation of concerns is not equal to separation of file types.** In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
+คิดว่ามีหนึ่งสิ่งที่สำคัญที่จะต้องรู้ไว้นั้นคือ **การแยกความสับสน นั้นไม่ใช่การแยกประเภทของไฟล์** ในการพัฒนาหน้าจอการใช้งานสมัยใหม่(Modern User Interface) เราได้สร้างสิ่งที่มาแทนที่การแบ่งแยกของโค้ดเป็นสามหมวดใหญ่ๆ ที่ผสมผสานทำงานร่วมกันเป็นหนึ่งเดียว มันทำให้รู้สึกว่าการแบ่งแยกโค้ดให้คอมโพเน้นท์มีความยืดหยุ่นมากขึ้น และนำมาประกอบกันข้างในคอมโพเน้นท์เดียว มันเปรียบเสมือนเทมเพลตแบบ ความคิด และสไตล์ คือความเข้ากันได้อย่างแท้จริง และการจัดวางโค้ดจริงๆแล้วสามารถสร้างคอมโพเน้นท์ต่างๆให้เป็นกลุ่มเป็นก้อนและง่ายต่อการพัฒนาต่อ หรือการบำรุงรักษา
 
-Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
+ถึงแ้ว่าคุณจะไม่ไอเดียของ Single-File Components คุณก็ยังคงดึงคุณสมบัติ hot-reloading และ pre-compilation โดยการแบ่งแยก JavaScript ของคุณ และ CSS เป็นอีกไฟล์ได้แบบนี้:
 
 ``` html
 <!-- my-component.vue -->
@@ -48,19 +48,19 @@ Even if you don't like the idea of Single-File Components, you can still leverag
 <style src="./my-component.css"></style>
 ```
 
-## Getting Started
+## เริ่มต้นใช้งาน
 
-### Example Sandbox
+### ตัวอย่างสำหรับ Sandbox
 
-If you want to dive right in and start playing with single-file components, check out [this simple todo app](https://codesandbox.io/s/o29j95wx9) on CodeSandbox.
+ถ้าคุณต้องการที่จะขับเคลื่อนและเริ่มใช้งานด้วย single-file components กรุณาดูที่นี่ [นี่คือตัวอย่างแอ๊พพลิเคชั่น Todo](https://codesandbox.io/s/o29j95wx9) บน CodeSandbox
 
-### For Users New to Module Build Systems in JavaScript
+### สำหรับผู้ใช้ที่ยังเป็นมือใหม่กับระบบการสร้างโมดูลใน JavaScript
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
+ด้วยโมดูล `.vue` เราได้สร้างอนาจักรของแอ๊พพลิเคชั่น JavaScript ขั้นสูง ถ้าคุณยังไม่มีความพร้อมหรือยังไม่เข้าใข นั่นหมายถึงการเรียนรู้ที่จะใช้เครื่องมือที่เพิ่มเติ่มมาอีกไม่กี่อย่าง:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/getting-started/what-is-npm) through section _10: Uninstalling global packages_.
+- **Node Package Manager (NPM)**: อ่านที่ [คำแนะนำการเริ่มต้นใช้งาน](https://docs.npmjs.com/getting-started/what-is-npm) ไปดูหมวดที่ _10: Uninstalling global packages_
 
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/learn-es2015/). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
+- **ภาษา JavaScript สมัยใหม่ ES2015/16**: อ่านผ่านๆ ที่ [คำแนะนำการเรียนรู้ ES2015](https://babeljs.io/docs/learn-es2015/) คุณไม่ต้องจำทุกๆ คุณสมบัติในตอนนี้ แต่ต้องเก็บหน้านี้ไว้เป็นการอ้างอิงเพื่อให้คุณย้อนกลับมาอ่านอีกครั้ง
 
 After you've taken a day to dive into these resources, we recommend checking out the [webpack](https://vuejs-templates.github.io/webpack) template. Follow the instructions and you should have a Vue project with `.vue` components, ES2015, and hot-reloading in no time!
 
