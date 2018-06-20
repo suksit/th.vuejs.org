@@ -1,43 +1,43 @@
 ---
-title: Single File Components
-type: guide
-order: 402
+หัวข้อ: Single File Components
+ประเภท: การแนะนำ
+ลำดับที่: 402
 ---
 
-## Introduction
+## เกริ่นนำ
 
-In many Vue projects, global components will be defined using `Vue.component`, followed by `new Vue({ el: '#container' })` to target a container element in the body of every page.
+ในหลายๆ โปรเจคของ Vue คอมโพเน้นท์หลักจะใช้ไฟล์ `Vue.component` และมี `new Vue({ el: '#container' })` ใช้ในการอ้างอิงค์กับองค์ประกอบ ในเนื้อหาของทุกๆหน้า
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+ในส่วนนี้เหมาะสำหรับการทำงานกับโปคเจคขนาดเล็ก จนถึงขนาดกลาง และใช้ JavaScript เพื่อเพิ่มองค์ประกอบบางอย่างเท่านั้น อย่างไรก็ตามสำหรับโปรเจคที่มีความซับซ้อน หรือเมื่อ Frontend ของคุณ ทำงานด้วย JavaScript ทั้งหมด จะเห็นข้อเสียเหล่านี้อย่างชัดเจน:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **ข้อกำหนดหลัก** ชื่อของทุกๆ คอมโพเน้นท์จะต้องไม่ซ้ำกัน
+- **เทมเพลตแบบตัวอักษร** จะไม่มีการเน้นสีสำหรับ ไวยากรณ์(Syntax) และต้องการให้มีการใช้เครื่องหมายทับ (/) สำหรับการเขียน HTML หลายบรรทัด
+- **ไม่สามารถใช้งาน CSS** หมายถึงในขณะที่ HTML และ Javascript เป็นโมดูลที่อยู่ในคอมโพเน้นท์แล้ว CSS จะถูกแสดงออกมาเฉยๆ และไม่สามารถใช้งานได้
+- **ไม่มีขั้นตอนการเขียนชัดเจน** ข้อกำหนดของ สำหรับ HTML และ JavaScript เวอร์ชั่น ES5 ทำงานค่อนข้างเหมือนกับ PugJS (formerly Jade) และ BabelJS
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+ทั้งหมดทั้งมวลนี้ได้ถูกแก้ไขโดย **single-file components** ด้วยไฟล์นามสกุล `.vue`  สามารถสร้างด้วยเครื่องมืออย่างเช่น Webpack หรือ Browserify
 
-Here's an example of a file we'll call `Hello.vue`:
+นี่คือไฟล์ตัวอย่างเราจะเรียกว่า `Hello.vue` (คลิกภาพเพื่อดูโค้ด):
 
-<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="Single-file component example (click for code as text)" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank"><img src="/images/vue-component.png" alt="ตัวอย่าง Single-file component (คลิกภาพเพื่อดูโค้ด)" style="display: block; margin: 30px auto;"></a>
 
-Now we get:
+ตอนนี้เราได้:
 
-- [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
-- [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
-- [Component-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
+- [การเน้นสีสำหรับ ไวยากรณ์(Syntax)](https://github.com/vuejs/awesome-vue#source-code-editing)
+- [โมดูล CommonJS](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
+- [คอมโพเน้นท์กำหนดขอบเขตของ CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
 
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+ตามที่ได้สัญญาไว้ เราสามารถใช้การประมวลผลล่วงหน้า(Preprocessors) อย่างเช่น PugJS, BabelJS (กับ Javascript เวอร์ชั่น ES2015) และตกแต่งได้อย่างสะอาดตา และเพิ่มเติมคอมโพเน้นท์ได้อย่างเต็มที่
 
-<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="Single-file component example with preprocessors (click for code as text)" style="display: block; margin: 30px auto;"></a>
+<a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank"><img src="/images/vue-component-with-preprocessors.png" alt="ตัวอย่าง Single-file component ทำงานกับ การประมวลผลล่วงหน้า(Preprocessors) (คลิกภาพเพื่อดูโค้ด)" style="display: block; margin: 30px auto;"></a>
 
-These specific languages are only examples. You could as easily use Bublé, TypeScript, SCSS, PostCSS - or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
+โค้ดภาษาเหล่านี้เป็นเพียงแค่ตัวอย่าง คุณสามารถใช้งานด้วยกันกับ Bublé, TypeScript, SCSS, PostCSS ได้อย่างง่ายดาย หรืออะไรก็ตามที่เป็นการประมวลผลล่วงหน้า นั้นช่วยคุณให้เกิดประโยชน์ ถ้าคุณใช้ Webpack ร่วมกับ `vue-loader` มันยังมีการสนับสนุนอย่างดีสำหรับโมดูล CSS
 
-### What About Separation of Concerns?
+### อะไรคือตัวบ่งบอกการแยกความสับสน?
 
-One important thing to note is that **separation of concerns is not equal to separation of file types.** In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable.
+คิดว่ามีหนึ่งสิ่งที่สำคัญที่จะต้องรู้ไว้นั้นคือ **การแยกความสับสน นั้นไม่ใช่การแยกประเภทของไฟล์** ในการพัฒนาหน้าจอการใช้งานสมัยใหม่(Modern User Interface) เราได้สร้างสิ่งที่มาแทนที่การแบ่งแยกของโค้ดเป็นสามหมวดใหญ่ๆ ที่ผสมผสานทำงานร่วมกันเป็นหนึ่งเดียว มันทำให้รู้สึกว่าการแบ่งแยกโค้ดให้คอมโพเน้นท์มีความยืดหยุ่นมากขึ้น และนำมาประกอบกันข้างในคอมโพเน้นท์เดียว มันเปรียบเสมือนเทมเพลตแบบ ความคิด และสไตล์ คือความเข้ากันได้อย่างแท้จริง และการจัดวางโค้ดจริงๆแล้วสามารถสร้างคอมโพเน้นท์ต่างๆให้เป็นกลุ่มเป็นก้อนและง่ายต่อการพัฒนาต่อ หรือการบำรุงรักษา
 
-Even if you don't like the idea of Single-File Components, you can still leverage its hot-reloading and pre-compilation features by separating your JavaScript and CSS into separate files:
+ถึงแม้ว่าคุณจะไม่ชอบไอเดียของ Single-File Components คุณก็ยังคงดึงคุณสมบัติ hot-reloading และ pre-compilation โดยการแบ่งแยก JavaScript ของคุณ และ CSS เป็นอีกไฟล์ได้แบบนี้:
 
 ``` html
 <!-- my-component.vue -->
@@ -48,24 +48,24 @@ Even if you don't like the idea of Single-File Components, you can still leverag
 <style src="./my-component.css"></style>
 ```
 
-## Getting Started
+## เริ่มต้นใช้งาน
 
-### Example Sandbox
+### ตัวอย่างสำหรับ Sandbox
 
-If you want to dive right in and start playing with single-file components, check out [this simple todo app](https://codesandbox.io/s/o29j95wx9) on CodeSandbox.
+ถ้าคุณต้องการที่จะขับเคลื่อนและเริ่มใช้งานด้วย single-file components กรุณาดูที่นี่ [นี่คือตัวอย่างแอ๊พพลิเคชั่น Todo](https://codesandbox.io/s/o29j95wx9) บน CodeSandbox
 
-### For Users New to Module Build Systems in JavaScript
+### สำหรับผู้ใช้ที่ยังเป็นมือใหม่กับระบบการสร้างโมดูลใน JavaScript
 
-With `.vue` components, we're entering the realm of advanced JavaScript applications. That means learning to use a few additional tools if you haven't already:
+ด้วยโมดูล `.vue` เราได้สร้างอนาจักรของแอ๊พพลิเคชั่น JavaScript ขั้นสูง ถ้าคุณยังไม่มีความพร้อมหรือยังไม่เข้าใข นั่นหมายถึงการเรียนรู้ที่จะใช้เครื่องมือที่เพิ่มเติ่มมาอีกไม่กี่อย่าง:
 
-- **Node Package Manager (NPM)**: Read the [Getting Started guide](https://docs.npmjs.com/getting-started/what-is-npm) through section _10: Uninstalling global packages_.
+- **Node Package Manager (NPM)**: อ่านที่ [คำแนะนำการเริ่มต้นใช้งาน](https://docs.npmjs.com/getting-started/what-is-npm) ไปดูหมวดที่ _10: Uninstalling global packages_
 
-- **Modern JavaScript with ES2015/16**: Read through Babel's [Learn ES2015 guide](https://babeljs.io/docs/learn-es2015/). You don't have to memorize every feature right now, but keep this page as a reference you can come back to.
+- **ภาษา JavaScript สมัยใหม่ ES2015/16**: อ่านของ babel ที่ [คำแนะนำการเรียนรู้ ES2015](https://babeljs.io/docs/learn-es2015/) คุณไม่ต้องจำทุกๆ คุณสมบัติในตอนนี้ แต่ต้องเก็บหน้านี้ไว้เป็นการอ้างอิงเพื่อให้คุณย้อนกลับมาอ่านอีกครั้ง
 
-After you've taken a day to dive into these resources, we recommend checking out the [webpack](https://vuejs-templates.github.io/webpack) template. Follow the instructions and you should have a Vue project with `.vue` components, ES2015, and hot-reloading in no time!
+หลังจากนั้น คุณใช้เวลาหนึ่งวันในการเรียนรู้และเข้าใจเกี่ยวกับเนื้อหาเหล่านี้ เราแนะนำให้ดูเทมเพลต [webpack](https://vuejs-templates.github.io/webpack) ตามคำแนะนำ และคุณควรมีสักหนึ่งโปรเจคที่สร้างด้วยคอมโพเน้นท์ `.vue` ES2015 และใช้ hot-reloading ในขั้นตอนนี้
 
-To learn more about Webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [Webpack Academy](https://webpack.academy/p/the-core-concepts). In Webpack, each file can be transformed by a "loader" before being included in the bundle, and Vue offers the [vue-loader](https://vue-loader.vuejs.org) plugin to translate single-file (`.vue`) components.
+สำหรับการเรียนรู้เกี่ยวกับ Webpack ด้วยตัวเองให้ดูที่ [เอกสารอย่างเป็นทางการ](https://webpack.js.org/configuration/) และ [ศูนย์ศึกษา Webpack](https://webpack.academy/p/the-core-concepts) ไฟล์ทั้งหมดจะเป็นการแปลงโดย "loader" ก่อนที่จะเข้ามาใน bundle และ Vue ขอเสนอ [vue-loader](https://vue-loader.vuejs.org) ปลั๊กอินสำหรับการแปลง คอมโพเน้นท์เดี่ยว(`.vue`)
 
-### For Advanced Users
+### สำหรับผู้ใช้ขั้นสูง
 
-Whether you prefer Webpack or Browserify, we have documented templates for both simple and more complex projects. We recommend browsing [github.com/vuejs-templates](https://github.com/vuejs-templates), picking a template that's right for you, then following the instructions in the README to generate a new project with [vue-cli](https://github.com/vuejs/vue-cli).
+คุณชอบ Webpack หรือ Browserify เราได้มีเทมเพลตเอกสารสำหรับตัวอย่างง่ายๆ ทั้งหมดและ หลายๆ โปรเจคที่ซับซ้อน เราแนะนำให้ไปค้นหาที่ [github.com/vuejs-templates](https://github.com/vuejs-templates) เลือกสักหนึ่งเทมเพลตที่คุณชอบและทำตามคำแนะนำใน README เพื่อสร้างโปรเจคใหม่ด้วย [vue-cli](https://github.com/vuejs/vue-cli)
