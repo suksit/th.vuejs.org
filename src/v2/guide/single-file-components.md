@@ -37,7 +37,7 @@
 
 คิดว่ามีหนึ่งสิ่งที่สำคัญที่จะต้องรู้ไว้นั้นคือ **การแยกความสับสน นั้นไม่ใช่การแยกประเภทของไฟล์** ในการพัฒนาหน้าจอการใช้งานสมัยใหม่(Modern User Interface) เราได้สร้างสิ่งที่มาแทนที่การแบ่งแยกของโค้ดเป็นสามหมวดใหญ่ๆ ที่ผสมผสานทำงานร่วมกันเป็นหนึ่งเดียว มันทำให้รู้สึกว่าการแบ่งแยกโค้ดให้คอมโพเน้นท์มีความยืดหยุ่นมากขึ้น และนำมาประกอบกันข้างในคอมโพเน้นท์เดียว มันเปรียบเสมือนเทมเพลตแบบ ความคิด และสไตล์ คือความเข้ากันได้อย่างแท้จริง และการจัดวางโค้ดจริงๆแล้วสามารถสร้างคอมโพเน้นท์ต่างๆให้เป็นกลุ่มเป็นก้อนและง่ายต่อการพัฒนาต่อ หรือการบำรุงรักษา
 
-ถึงแ้ว่าคุณจะไม่ไอเดียของ Single-File Components คุณก็ยังคงดึงคุณสมบัติ hot-reloading และ pre-compilation โดยการแบ่งแยก JavaScript ของคุณ และ CSS เป็นอีกไฟล์ได้แบบนี้:
+ถึงแม้ว่าคุณจะไม่ชอบไอเดียของ Single-File Components คุณก็ยังคงดึงคุณสมบัติ hot-reloading และ pre-compilation โดยการแบ่งแยก JavaScript ของคุณ และ CSS เป็นอีกไฟล์ได้แบบนี้:
 
 ``` html
 <!-- my-component.vue -->
@@ -60,12 +60,12 @@
 
 - **Node Package Manager (NPM)**: อ่านที่ [คำแนะนำการเริ่มต้นใช้งาน](https://docs.npmjs.com/getting-started/what-is-npm) ไปดูหมวดที่ _10: Uninstalling global packages_
 
-- **ภาษา JavaScript สมัยใหม่ ES2015/16**: อ่านผ่านๆ ที่ [คำแนะนำการเรียนรู้ ES2015](https://babeljs.io/docs/learn-es2015/) คุณไม่ต้องจำทุกๆ คุณสมบัติในตอนนี้ แต่ต้องเก็บหน้านี้ไว้เป็นการอ้างอิงเพื่อให้คุณย้อนกลับมาอ่านอีกครั้ง
+- **ภาษา JavaScript สมัยใหม่ ES2015/16**: อ่านของ babel ที่ [คำแนะนำการเรียนรู้ ES2015](https://babeljs.io/docs/learn-es2015/) คุณไม่ต้องจำทุกๆ คุณสมบัติในตอนนี้ แต่ต้องเก็บหน้านี้ไว้เป็นการอ้างอิงเพื่อให้คุณย้อนกลับมาอ่านอีกครั้ง
 
-After you've taken a day to dive into these resources, we recommend checking out the [webpack](https://vuejs-templates.github.io/webpack) template. Follow the instructions and you should have a Vue project with `.vue` components, ES2015, and hot-reloading in no time!
+หลังจากนั้น คุณใช้เวลาหนึ่งวันในการเรียนรู้และเข้าใจเกี่ยวกับเนื้อหาเหล่านี้ เราแนะนำให้ดูเทมเพลต [webpack](https://vuejs-templates.github.io/webpack) ตามคำแนะนำ และคุณควรมีสักหนึ่งโปรเจคที่สร้างด้วยคอมโพเน้นท์ `.vue` ES2015 และใช้ hot-reloading ในขั้นตอนนี้
 
-To learn more about Webpack itself, check out [their official docs](https://webpack.js.org/configuration/) and [Webpack Academy](https://webpack.academy/p/the-core-concepts). In Webpack, each file can be transformed by a "loader" before being included in the bundle, and Vue offers the [vue-loader](https://vue-loader.vuejs.org) plugin to translate single-file (`.vue`) components.
+สำหรับการเรียนรู้เกี่ยวกับ Webpack ด้วยตัวเองให้ดูที่ [เอกสารอย่างเป็นทางการ](https://webpack.js.org/configuration/) และ [ศูนย์ศึกษา Webpack](https://webpack.academy/p/the-core-concepts) ไฟล์ทั้งหมดจะเป็นการแปลงโดย "loader" ก่อนที่จะเข้ามาใน bundle และ Vue ขอเสนอ [vue-loader](https://vue-loader.vuejs.org) ปลั๊กอินสำหรับการแปลง คอมโพเน้นท์เดี่ยว(`.vue`)
 
-### For Advanced Users
+### สำหรับผู้ใช้ขั้นสูง
 
-Whether you prefer Webpack or Browserify, we have documented templates for both simple and more complex projects. We recommend browsing [github.com/vuejs-templates](https://github.com/vuejs-templates), picking a template that's right for you, then following the instructions in the README to generate a new project with [vue-cli](https://github.com/vuejs/vue-cli).
+คุณชอบ Webpack หรือ Browserify เราได้มีเทมเพลตเอกสารสำหรับตัวอย่างง่ายๆ ทั้งหมดและ หลายๆ โปรเจคที่ซับซ้อน เราแนะนำให้ไปค้นหาที่ [github.com/vuejs-templates](https://github.com/vuejs-templates) เลือกสักหนึ่งเทมเพลตที่คุณชอบและทำตามคำแนะนำใน README เพื่อสร้างโปรเจคใหม่ด้วย [vue-cli](https://github.com/vuejs/vue-cli)
